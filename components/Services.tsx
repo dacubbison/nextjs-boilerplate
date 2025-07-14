@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const services = [
-  { name: 'Mobile Mechanic', image: '/images/mobile-mechanic-woodlands.jpg', alt: 'Mobile mechanic in The Woodlands TX', bullets: ['On-site repairs at your location', 'Tune-ups, brake service, and more', 'Fast, reliable, ASE-certified technicians'] },
+  { name: 'Mobile Mechanic', image: '/images/mobile-mechanic-kingwood-tx.jpg', alt: 'Mobile mechanic in Kingwood TX', bullets: ['On-site repairs at your location', 'Tune-ups, brake service, and more', 'Fast, reliable, ASE-certified technicians'] },
   { name: 'Mobile Auto Diagnostics', image: '/images/mobile-auto-diagnostics-woodlands.jpg', alt: 'Mobile auto diagnostics Montgomery County', bullets: ['Advanced on-site diagnostics', 'Identify issues before they worsen', 'Quick and accurate results'] },
   { name: 'Car Accessories Installation', image: '/images/car-install-montgomerytx.jpg', alt: 'Car accessories installation Montgomery County', bullets: ['Professional installation of dash cams, GPS, and more', 'Custom solutions for your vehicle', 'Hassle-free setup'] },
   { name: 'Fleet Maintenance', image: '/images/fleet-repair-montgomerytx.jpg', alt: 'Fleet repair Montgomery County TX', bullets: ['Regular maintenance for business fleets', 'Minimize downtime with on-site service', 'Tailored plans for your needs'] },

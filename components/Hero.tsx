@@ -1,21 +1,28 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <section className="bg-blue-900 text-white py-20 text-center">
+    <section className="relative bg-blue-900 text-white py-20 text-center" style={{ backgroundImage: "url('/images/hero-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="absolute top-4 left-4">
+        <Image src="/images/cartoon-mechanic-logo.jpg" alt="Top Tech Mobile Mechanic Logo" width={100} height={100} />
+      </div>
+      <div className="absolute top-4 right-4">
+        <Image src="/images/piston-wrench-logo.jpg', alt="Top Tech Mobile Service Logo" width= {100} height={100} />
+      </div>
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-4">Top Tech Mobile: Your ASE-Certified Mobile Mechanic</h1>
-        <p className="text-xl mb-6">Serving The Woodlands, TX, Montgomery County, Kingwood, and surrounding areas with on-site repairs, diagnostics, hybrid/EV services, and more.</p>
-        <p className="mb-8">Over 20 years of experience – Fast, affordable, and we come to you!</p>
-        <div className="space-x-4">
-          <a href="/book?service=general&location=the-woodlands-tx" className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600">Book Now</a>
-          <button onClick={() => setShowModal(true)} className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600">Call Now</button>
-        </div>
-        <img src="/images/ase-badge.png" alt="ASE Master Technician Certified" className="mx-auto mt-4 w-24" />
+        <h1 className="text-4xl font-bold mb-4">Top Tech: Mobile Mechanic in The Woodlands</h1>
+        <p className="text-xl mb-6">ASE Certified Technicians</p>
+        <p className="text-2xl mb-4">Your Mobile Mechanic in The Woodlands and Montgomery County</p>
+        <p className="text-xl mb-6">Quality Work, Reasonable Prices</p>
+        <p className="text-xl mb-8">Call or Text for a Free Quote: 936-529-4748</p>
+        <p className="text-xl mb-6">Send Us Your Shop Quotes - We'll Try to Cut Them in Half!</p>
+        <button onClick={() => setShowModal(true)} className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600">Click Here to Call Now</button>
+        <img src="/images/ase-badge.png" alt="ASE Certified Master Technician" className="mx-auto mt-4 w-24" />
 
         {/* Modal for Call/Text */}
         {showModal && (
