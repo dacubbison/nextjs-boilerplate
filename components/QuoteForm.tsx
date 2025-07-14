@@ -3,30 +3,35 @@
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 
+interface FormData {
+  name: string;
+  email: string;
+  vehicle: string;
+  quoteDetails?: string;
+  quoteFile?: FileList;
+}
+
 export default function QuoteForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<FormData>();
 
-  const onSubmit = (data) => {
-    // Handle file as base64 if present
-    if (data.quoteFile && data.quoteFile[0]) {
-      const file = data.quoteFile[0];
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const base64 = e.target.result;
-        const formData = { ...data, quoteFile: base64, fileName: file.name };
-        sendEmail(formData);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      sendEmail(data);
+  const onSubmit = async (data: FormData) => {
+    try {
+      if (data.quoteFile && data.quoteFile[0]) {
+        const file = data.quoteFile[0];
+        const base64 = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target.result);
+          reader.readAsDataURL(file);
+        });
+        await emailjs.send('your_service_id', 'your_template_id', { ...data, quoteFile: base64, fileName: file.name }, 'your_user_id');
+      } else {
+        await emailjs.send('your_service_id', 'your_template_id', data, 'your_user_id');
+      }
+      alert('Quote submitted! We\'ll get back soon.');
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Error submitting quote. Please try again or contact us directly.');
     }
-  };
-
-  const sendEmail = (formData) => {
-    // Replace with your EmailJS credentials (signup at emailjs.com)
-    emailjs.send('your_service_id', 'your_template_id', formData, 'your_user_id')
-      .then(() => alert('Quote submitted! We\'ll get back soon.'))
-      .catch((error) => console.error(error));
   };
 
   return (
@@ -38,7 +43,7 @@ export default function QuoteForm() {
           <input {...register('email')} placeholder="Your Email" type="email" className="block w-full mb-2 p-2 text-black" required />
           <input {...register('vehicle')} placeholder="Vehicle Make/Model" className="block w-full mb-2 p-2 text-black" required />
           <textarea {...register('quoteDetails')} placeholder="Describe or Paste Shop Quote" className="block w-full mb-2 p-2 text-black" />
-          <input {...register('quoteFile')} type="file" accept="image/*,application/pdf" className="block w-full mb-2" /> {/* File upload for photo/SS */}
+          <input {...register('quoteFile')} type="file" accept="image/*,application/pdf" className="block w-full mb-2" />
           <button type="submit" className="bg-blue-500 text-white px-6 py-3 rounded">Submit Quote</button>
         </form>
       </div>
