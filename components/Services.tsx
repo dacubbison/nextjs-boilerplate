@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const services = [
-  { name: 'Blower Motor Repair', image: '/images/blower-motor-repair.jpg', alt: 'On-site blower motor replacement in The Woodlands, TX', description: 'Fixing HVAC issues right at your location.' },
+  { name: 'Fuel Pump Replacement', image: '/images/fuel-pump-repair.jpg', alt: 'On-site fuel pump replacement in The Woodlands, TX', description: 'Replacing faulty fuel pumps right at your location.' },
   { name: 'Engine Diagnostics', image: '/images/engine-diagnostics.jpg', alt: 'Mobile engine diagnostics Montgomery County', description: 'Advanced tools for accurate problem identification.' },
   { name: 'Brake Service', image: '/images/brake-service.jpg', alt: 'Brake repairs near Kingwood', description: 'Safe, efficient brake inspections and replacements.' },
   { name: 'A/C Recharge & Repair', image: '/images/ac-recharge.jpg', alt: 'A/C system service in surrounding areas', description: 'Keeping you cool with on-site A/C fixes.' },
