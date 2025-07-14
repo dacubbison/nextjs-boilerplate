@@ -16,17 +16,25 @@ export default function QuoteForm() {
 
   const onSubmit = async (data: FormData) => {
     try {
+      const emailParams: Record<string, unknown> = {
+        name: data.name,
+        email: data.email,
+        vehicle: data.vehicle,
+        quoteDetails: data.quoteDetails,
+      };
+
       if (data.quoteFile && data.quoteFile[0]) {
         const file = data.quoteFile[0];
-        const base64 = await new Promise((resolve) => {
+        const base64 = await new Promise<string>((resolve) => {
           const reader = new FileReader();
-          reader.onload = (e) => resolve(e.target.result);
+          reader.onload = (e: ProgressEvent<FileReader>) => resolve(e.target?.result as string || '');
           reader.readAsDataURL(file);
         });
-        await emailjs.send('your_service_id', 'your_template_id', { ...data, quoteFile: base64, fileName: file.name }, 'your_user_id');
-      } else {
-        await emailjs.send('your_service_id', 'your_template_id', data, 'your_user_id');
+        emailParams.quoteFile = base64;
+        emailParams.fileName = file.name;
       }
+
+      await emailjs.send('your_service_id', 'your_template_id', emailParams, 'your_user_id');
       alert('Quote submitted! We\'ll get back soon.');
     } catch (error) {
       console.error('EmailJS error:', error);
