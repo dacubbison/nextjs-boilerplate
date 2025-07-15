@@ -1,58 +1,56 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
-
-interface FormData {
-  name: string;
-  email: string;
-  vehicle: string;
-  quoteDetails?: string;
-  quoteFile?: FileList;
-}
+import { useState } from 'react';
 
 export default function QuoteForm() {
-  const { register, handleSubmit } = useForm<FormData>();
+  const [formData, setFormData] = useState({ name: '', email: '', vehicle: '', description: '', file: null });
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      const emailParams: Record<string, unknown> = {
-        name: data.name,
-        email: data.email,
-        vehicle: data.vehicle,
-        quoteDetails: data.quoteDetails,
-      };
-
-      if (data.quoteFile && data.quoteFile[0]) {
-        const file = data.quoteFile[0];
-        const base64 = await new Promise<string>((resolve) => {
-          const reader = new FileReader();
-          reader.onload = (e: ProgressEvent<FileReader>) => resolve(e.target?.result as string || '');
-          reader.readAsDataURL(file);
-        });
-        emailParams.quoteFile = base64;
-        emailParams.fileName = file.name;
-      }
-
-      await emailjs.send('your_service_id', 'your_template_id', emailParams, 'your_user_id');
-      alert('Quote submitted! We\'ll get back soon.');
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      alert('Error submitting quote. Please try again or contact us directly.');
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic (e.g., EmailJS or API call)
+    console.log('Form submitted:', formData);
   };
 
   return (
-    <section className="bg-gray-800 text-white py-10">
+    <section className="py-10 bg-blue-900 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-4">Share Your Shop Quote – We Often Beat It by Up to 50%!</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
-          <input {...register('name')} placeholder="Your Name" className="block w-full mb-2 p-2 text-black" required />
-          <input {...register('email')} placeholder="Your Email" type="email" className="block w-full mb-2 p-2 text-black" required />
-          <input {...register('vehicle')} placeholder="Vehicle Make/Model" className="block w-full mb-2 p-2 text-black" required />
-          <textarea {...register('quoteDetails')} placeholder="Describe or Paste Shop Quote" className="block w-full mb-2 p-2 text-black" />
-          <input {...register('quoteFile')} type="file" accept="image/*,application/pdf" className="block w-full mb-2" />
-          <button type="submit" className="bg-blue-500 text-white px-6 py-3 rounded">Submit Quote</button>
+        <h2 className="text-3xl font-bold mb-6 text-center">Share Your Shop Quote - We Often Beat It by Up to 50%!</h2>
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+          <input 
+            type="text" 
+            placeholder="Your Name" 
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed placeholder to white
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            required 
+          />
+          <input 
+            type="email" 
+            placeholder="Your Email" 
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed to white
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required 
+          />
+          <input 
+            type="text" 
+            placeholder="Vehicle Make/Model" 
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed to white
+            onChange={(e) => setFormData({ ...formData, vehicle: e.target.value })}
+            required 
+          />
+          <textarea 
+            placeholder="Describe or Paste Shop Quote" 
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed to white
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            required 
+          />
+          <input 
+            type="file" 
+            className="block w-full mb-4 text-white" // File input doesn't need placeholder, but ensure text is visible
+            onChange={(e) => setFormData({ ...formData, file: e.target.files[0] })}
+          />
+          <button type="submit" className="block w-full bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+            Submit Quote
+          </button>
         </form>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function Hero() {
         <p className="text-2xl mb-4">Your Mobile Mechanic in The Woodlands, Montgomery County, and Kingwood</p>
         <p className="text-xl mb-6">Quality Work, Reasonable Prices</p>
         <p className="text-xl mb-8">Call or Text for a Free Quote: 936-529-4748</p>
-        <p className="text-xl mb-6">Send Us Your Shop Quotes - We'll Try to Cut Them in Half!</p>
+        <p className="text-xl mb-6">Share Your Shop Quote - We Often Beat It by Up to 50%!</p>
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <button
             onClick={() => setShowModal(true)}
