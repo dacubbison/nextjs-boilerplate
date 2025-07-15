@@ -2,13 +2,27 @@
 
 import { useState } from 'react';
 
-export default function QuoteForm() {
-  const [formData, setFormData] = useState({ name: '', email: '', vehicle: '', description: '', file: null });
+interface FormData {
+  name: string;
+  email: string;
+  vehicle: string;
+  description: string;
+  file: File | null;
+}
 
-  const handleSubmit = (e) => {
+export default function QuoteForm() {
+  const [formData, setFormData] = useState<FormData>({ name: '', email: '', vehicle: '', description: '', file: null });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic (e.g., EmailJS or API call)
     console.log('Form submitted:', formData);
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFormData({ ...formData, file: e.target.files[0] });
+    }
   };
 
   return (
@@ -19,34 +33,34 @@ export default function QuoteForm() {
           <input 
             type="text" 
             placeholder="Your Name" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed placeholder to white
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
             required 
           />
           <input 
             type="email" 
             placeholder="Your Email" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed to white
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
             required 
           />
           <input 
             type="text" 
             placeholder="Vehicle Make/Model" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed to white
-            onChange={(e) => setFormData({ ...formData, vehicle: e.target.value })}
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, vehicle: e.target.value })}
             required 
           />
           <textarea 
             placeholder="Describe or Paste Shop Quote" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded" // Changed to white
-            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({ ...formData, description: e.target.value })}
             required 
           />
           <input 
             type="file" 
-            className="block w-full mb-4 text-white" // File input doesn't need placeholder, but ensure text is visible
-            onChange={(e) => setFormData({ ...formData, file: e.target.files[0] })}
+            className="block w-full mb-4 text-white"
+            onChange={handleFileChange}
           />
           <button type="submit" className="block w-full bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
             Submit Quote
