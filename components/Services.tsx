@@ -19,7 +19,7 @@ export default function Services() {
             <div key={service.name} className="border p-4 rounded-lg shadow bg-white">
               <Image src={service.image} alt={service.alt} width={600} height={300} className="w-full h-64 object-cover mb-4" loading="lazy" />
               <h3 className="text-xl font-bold mb-2 text-black"> {service.name}</h3>
-              <ul className="list-disc pl-5 mb-4 text-gray-800 text-base md:text-lg"> // Darker text, larger on mobile
+              <ul className="list-disc pl-5 mb-4 text-gray-800 text-base md:text-lg">{/* Darker text, larger on mobile */}
                 {service.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
