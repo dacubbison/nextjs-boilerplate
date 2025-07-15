@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
 const services = [
-  { name: 'Mobile Mechanic', image: '/images/mobile-mechanic-kingwood-tx.png', alt: 'Mobile mechanic in Kingwood TX', bullets: ['On-site repairs at your location in The Woodlands or Kingwood', 'Tune-ups, brake service, and more', 'Fast, reliable, ASE-certified technicians'] },
-  { name: 'Mobile Auto Diagnostics', image: '/images/engine-diagnostics-montgomerytx.png', alt: 'Mobile auto diagnostics Montgomery County', bullets: ['Advanced on-site diagnostics in Montgomery County', 'Identify issues before they worsen', 'Quick and accurate results'] },
-  { name: 'Car Accessories Installation', image: '/images/car-install-montgomerytx.png', alt: 'Car accessories installation Montgomery County', bullets: ['Professional installation of dash cams, GPS, and more', 'Custom solutions for your vehicle in The Woodlands', 'Hassle-free setup'] },
-  { name: 'Fleet Maintenance', image: '/images/fleet-repair-montgomerytx.png', alt: 'Fleet repair Montgomery County TX', bullets: ['Regular maintenance for business fleets in Kingwood', 'Minimize downtime with on-site service', 'Tailored plans for your needs'] },
-  { name: 'Mobil One Oil Changes', image: '/images/mobile-oil-change-woodlands.png', alt: 'Mobile oil change The Woodlands TX', bullets: ['High-quality oil and filters', 'Maintain engine health and performance in Montgomery County', 'Quick, on-site service'] },
-  { name: 'Hybrid/EV Services', image: '/images/hybrid-ev-jpg.png', alt: 'Hybrid EV services The Woodlands TX', bullets: ['Specialized high-voltage repairs', 'Battery testing and replacement in The Woodlands', 'Eco-friendly vehicle maintenance'] },
+  { name: 'Mobile Mechanic', image: '/images/mobile-mechanic-kingwood-tx.png', alt: 'Mobile mechanic in Kingwood TX', bullets: ['On-site repairs at your location', 'Tune-ups, brake service, and more', 'Fast, reliable, ASE-certified technicians'] },
+  { name: 'Mobile Auto Diagnostics', image: '/images/engine-diagnostics-montgomerytx.jpg', alt: 'Mobile auto diagnostics Montgomery County', bullets: ['Advanced on-site diagnostics', 'Identify issues before they worsen', 'Quick and accurate results'] },
+  { name: 'Car Accessories Installation', image: '/images/car-install-montgomerytx.jpg', alt: 'Car accessories installation Montgomery County', bullets: ['Professional installation of dash cams, GPS, and more', 'Custom solutions for your vehicle', 'Hassle-free setup'] },
+  { name: 'Fleet Maintenance', image: '/images/fleet-repair-montgomerytx.jpg', alt: 'Fleet repair Montgomery County TX', bullets: ['Regular maintenance for business fleets', 'Minimize downtime with on-site service', 'Tailored plans for your needs'] },
+  { name: 'Mobil One Oil Changes', image: '/images/mobile-oil-change-woodlands.jpg', alt: 'Mobile oil change The Woodlands TX', bullets: ['High-quality oil and filters', 'Maintain engine health and performance in Montgomery County', 'Quick, on-site service'] },
+  { name: 'Hybrid/EV Services', image: '/images/hybrid-ev.jpg', alt: 'Hybrid EV services The Woodlands TX', bullets: ['Specialized high-voltage repairs', 'Battery testing and replacement', 'Eco-friendly vehicle maintenance'] },
 ];
 
 export default function Services() {
@@ -28,7 +28,7 @@ export default function Services() {
           ))}
         </div>
         <div className="text-center mt-8">
-          <a href="/book?service=general&location=the-woodlands-tx" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600" rel="noopener noreferrer">Book a Service Now</a>
+          <a href="/book?service=general&location=the-woodlands-tx" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">Book a Service Now</a>
         </div>
       </div>
     </section>
