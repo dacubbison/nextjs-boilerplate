@@ -8,17 +8,17 @@ export default function Hero() {
 
   return (
     <section className="relative bg-blue-900 text-white py-20 text-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Lighter Overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/images/mobile-mechanic-kingwood-tx.png" // Corrected path based on your folder
+          src="/images/mobile-mechanic-kingwood-tx.png" // Confirm this file is in public/images
           alt="Mobile Mechanic Service in Kingwood TX - Top Tech Working on Car in Driveway"
           fill
           style={{ objectFit: 'cover' }}
-          priority // Loads fast for hero
-          onError={() => console.log('Image load error - check path or file in public/images')} // Debug in console
+          priority
+          onError={() => console.log('Image load error - check path or file in public/images')}
         />
-        <div className="absolute inset-0 bg-blue-900 opacity-60" /> {/* Overlay to make text pop */}
+        <div className="absolute inset-0 bg-blue-900 opacity-30" /> {/* Lightened haze */}
       </div>
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
