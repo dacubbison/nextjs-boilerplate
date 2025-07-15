@@ -11,14 +11,13 @@ export default function Hero() {
       {/* Background Image with Lighter Overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/images/mobile-mechanic-kingwood-tx.png" // Confirm this file is in public/images
+          src="/images/mobile-mechanic-kingwood-tx.png"
           alt="Mobile Mechanic Service in Kingwood TX - Top Tech Working on Car in Driveway"
           fill
           style={{ objectFit: 'cover' }}
           priority
-          onError={() => console.log('Image load error - check path or file in public/images')}
         />
-        <div className="absolute inset-0 bg-blue-900 opacity-30" /> {/* Lightened haze */}
+        <div className="absolute inset-0 bg-blue-900 opacity-30" />
       </div>
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
@@ -37,7 +36,7 @@ export default function Hero() {
             Click Here to Call Now
           </button>
           <a
-            href="https://calendly.com/your-username/mobile-quote" // Replace with your Calendly link
+            href="https://calendly.com/YOUR-USERNAME/mobile-quote" // Replace YOUR-USERNAME with your actual Calendly username/event
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600"
