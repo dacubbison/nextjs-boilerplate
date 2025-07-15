@@ -7,15 +7,21 @@ export default function Hero() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <section
-      className="relative bg-blue-900 text-white py-20 text-center"
-      style={{
-        backgroundImage: `url('/mobile-mechanic-kingwood-tx.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section className="relative bg-blue-900 text-white py-20 text-center overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/mobile-mechanic-kingwood-tx.png" // Corrected path based on your folder
+          alt="Mobile Mechanic Service in Kingwood TX - Top Tech Working on Car in Driveway"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority // Loads fast for hero
+          onError={() => console.log('Image load error - check path or file in public/images')} // Debug in console
+        />
+        <div className="absolute inset-0 bg-blue-900 opacity-60" /> {/* Overlay to make text pop */}
+      </div>
+
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Top Tech: Mobile Mechanic in The Woodlands</h1>
         <p className="text-xl md:text-2xl mb-6">ASE Certified Technicians</p>
         <p className="text-2xl mb-4">Your Mobile Mechanic in The Woodlands, Montgomery County, and Kingwood</p>
