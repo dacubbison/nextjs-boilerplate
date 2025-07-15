@@ -13,13 +13,13 @@ export default function Services() {
   return (
     <section className="py-10 bg-gray-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">Mobile Auto Services in The Woodlands, TX and Montgomery County</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-black">Mobile Auto Services in The Woodlands, TX and Montgomery County</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <div key={service.name} className="border p-4 rounded-lg shadow bg-white">
               <Image src={service.image} alt={service.alt} width={600} height={300} className="w-full h-64 object-cover mb-4" loading="lazy" />
-              <h3 className="text-xl font-bold mb-2">{service.name}</h3>
-              <ul className="list-disc pl-5 mb-4">
+              <h3 className="text-xl font-bold mb-2 text-black"> {service.name}</h3>
+              <ul className="list-disc pl-5 mb-4 text-gray-800 text-base md:text-lg"> // Darker text, larger on mobile
                 {service.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
