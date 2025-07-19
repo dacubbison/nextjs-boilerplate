@@ -1,72 +1,20 @@
 'use client';
 
-import { useState } from 'react';
-
-interface FormData {
-  name: string;
-  email: string;
-  vehicle: string;
-  description: string;
-  file: File | null;
-}
-
 export default function QuoteForm() {
-  const [formData, setFormData] = useState<FormData>({ name: '', email: '', vehicle: '', description: '', file: null });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle form submission logic (e.g., EmailJS or API call)
-    console.log('Form submitted:', formData);
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setFormData({ ...formData, file: e.target.files[0] });
-    }
-  };
-
   return (
-    <section className="py-10 bg-blue-900 text-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6 text-center">Share Your Shop Quote - We Often Beat It by Up to 50%!</h2>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-          <input 
-            type="text" 
-            placeholder="Your Name" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
-            required 
-          />
-          <input 
-            type="email" 
-            placeholder="Your Email" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
-            required 
-          />
-          <input 
-            type="text" 
-            placeholder="Vehicle Make/Model" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, vehicle: e.target.value })}
-            required 
-          />
-          <textarea 
-            placeholder="Describe or Paste Shop Quote" 
-            className="block w-full mb-4 p-2 bg-blue-800 text-white placeholder-white border border-blue-700 rounded"
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({ ...formData, description: e.target.value })}
-            required 
-          />
-          <input 
-            type="file" 
-            className="block w-full mb-4 text-white"
-            onChange={handleFileChange}
-          />
-          <button type="submit" className="block w-full bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
-            Submit Quote
-          </button>
-        </form>
-      </div>
+    <section className="quote-form-section">
+      <h2>Share Your Shop Quote - We Often Beat It by Up to 50%! (Mobile Mechanic Near Me in The Woodlands, Kingwood, Montgomery County TX)</h2>
+      <form className="quote-form" action="/submit-quote" method="POST">
+        <input type="text" placeholder="Your Name" name="name" required aria-label="Your Name for Mobile Mechanic Quote in The Woodlands TX" />
+        <input type="email" placeholder="Your Email" name="email" required aria-label="Your Email for Mobile Mechanic Quote in Montgomery County TX" />
+        <input type="text" placeholder="Vehicle Make/Model" name="vehicle" required aria-label="Vehicle Make/Model for Mobile Mechanic Near Me in Kingwood TX" />
+        <textarea placeholder="Please describe any issues you're having thoroughly" name="description" rows={4} aria-label="Describe issues for mobile mechanic service in The Woodlands TX" />
+        <div className="file-upload">
+          <label htmlFor="file">Upload Your Shop Quote Here (Screenshot, PDF, Photo)</label>
+          <input type="file" id="file" name="quote-file" accept="image/*,.pdf" aria-label="Upload file for mobile mechanic quote near me in Kingwood TX" />
+        </div>
+        <button type="submit">Submit Quote</button>
+      </form>
     </section>
   );
 }

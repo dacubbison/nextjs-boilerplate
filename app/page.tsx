@@ -1,24 +1,55 @@
-import Head from 'next/head';
+// File: app/page.tsx
+import Script from 'next/script';
 import Hero from '../components/Hero';
-import QuoteForm from '../components/QuoteForm';
 import Services from '../components/Services';
+import QuoteForm from '../components/QuoteForm';
+import Footer from '../components/Footer';
+
+export const metadata = {
+  title: 'Mobile Mechanic in The Woodlands TX - Top Tech Mobile: ASE-Certified Services',
+  description: 'Reliable mobile mechanic near me in The Woodlands, Kingwood, and Montgomery County TX. On-site auto repairs, diagnostics, oil changes, and hybrid/EV services at competitive prices.',
+};
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>Top Tech Mobile: ASE-Certified Mobile Mechanic in The Woodlands, TX</title>
-        <meta name="description" content="Mobile mechanic services in The Woodlands, Montgomery County, Kingwood & surrounding areas. Hybrid/EV repairs, diagnostics, and more." />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+    <main>
+      <Script
+        type="application/ld+json"
+        strategy="afterInteractive"
+      >
+        {JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "Top Tech Mobile",
-          "description": "ASE-certified mobile mechanic serving The Woodlands, TX.",
-          "serviceArea": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 30.1658, "longitude": -95.4613 }, "geoRadius": "50000" }
-        }) }} />
-      </Head>
+          "name": "Top Tech Mobile Mechanic",
+          "description": "ASE-certified mobile mechanic near me serving The Woodlands, Kingwood, and Montgomery County TX with on-site repairs and diagnostics.",
+          "telephone": "936-529-4748",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Your Address Here",
+            "addressLocality": "The Woodlands",
+            "addressRegion": "TX",
+            "postalCode": "77381",
+            "addressCountry": "US"
+          },
+          "serviceArea": { 
+            "@type": "GeoCircle", 
+            "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 30.1658, "longitude": -95.4613 }, 
+            "geoRadius": "50000" 
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          },
+          "url": "https://toptechmobile.com",
+          "priceRange": "$$"
+        })}
+      </Script>
       <Hero />
       <Services />
       <QuoteForm />
-    </div>
+      <Footer />
+    </main>
   );
 }

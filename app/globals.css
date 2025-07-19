@@ -1,26 +1,221 @@
-@import "tailwindcss";
+/* Existing code if any... (e.g., any custom styles you had before—paste them here if needed) */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reset for consistency */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #333; }
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 500px;
+  background-image: url('/images/mobile-mechanic-kingwood-tx.png'); /* Image as background, no blue fallback */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+}
+.hero-section h1 { font-size: 2.5rem; margin-bottom: 10px; position: relative; z-index: 1; }
+.hero-section p { font-size: 1.2rem; margin-bottom: 10px; position: relative; z-index: 1; }
+
+/* Services Section */
+.services-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.services-section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
+.service-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.service-item {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.service-item h3 { font-size: 1.5rem; margin-bottom: 10px; color: #001F3F; }
+.service-item ul { list-style: disc; padding-left: 20px; }
+.service-item li { margin-bottom: 5px; }
+.service-item img { width: 100%; height: auto; margin-bottom: 10px; border-radius: 4px; }
+
+/* CTA accents */
+a, button { color: #28A745; text-decoration: none; font-weight: bold; }
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+  .hero-section { height: 400px; padding: 60px 10px; }
+  .hero-section h1 { font-size: 2rem; }
+  .service-card { grid-template-columns: 1fr; }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Hero Buttons */
+.hero-buttons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.call-now-btn {
+  background: #007BFF; /* Blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.book-now-btn {
+  background: #28A745; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Modal Popup */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 0;
+  width: 200px; /* Match screenshot width */
+  text-align: center;
+}
+.modal-header {
+  background: #007BFF; /* Blue header */
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: bold;
+}
+.modal-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.call-btn {
+  background: #007BFF; /* Blue */
+}
+.text-btn {
+  background: #6C757D; /* Gray */
+}
+.close-btn {
+  background: #DC3545; /* Red */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Quote Form Section */
+.quote-form-section {
+  background: #001F3F; /* Dark navy background like live site */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+.quote-form-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.quote-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.quote-form input,
+.quote-form textarea {
+  background: #002855; /* Darker navy for inputs */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Light white placeholders */
+}
+.quote-form textarea {
+  resize: vertical;
+}
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.file-upload label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+.quote-form input[type="file"] {
+  background: #002855;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+.quote-form button {
+  background: #007BFF; /* Blue submit button */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 20px; /* Rounded like screenshot */
+  font-weight: bold;
+  cursor: pointer;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .quote-form-section { padding: 30px 10px; }
+  .quote-form { gap: 10px; }
+}
+
+/* Footer Section */
+.footer-section {
+  background: #001F3F;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+.footer-section a {
+  color: #28A745;
+  margin: 0 10px;
 }
