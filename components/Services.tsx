@@ -42,33 +42,15 @@ export default function Services() {
   };
 
   const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString()); // 1980-2025
-  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Acura', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
+  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   return (
     <section className="services-section">
       <h2>Mobile Auto Services in The Woodlands TX and Montgomery County</h2>
-      <div className="service-card">
-        <div className="service-item">
-          <h3>Mobile Mechanic in The Woodlands TX</h3>
-          <Image 
-            src="/images/mobile-mechanic-woodlands.jpg"
-            alt="Mobile mechanic near me in The Woodlands TX for on-site auto repair, tune-ups, and brake service in Kingwood TX"
-            width={400}
-            height={300}
-            loading="lazy"
-          />
-          <ul>
-            <li>On-site repairs at your home or office in Kingwood TX</li>
-            <li>Tune-ups and maintenance</li>
-            <li>Brake service and repair</li>
-            <li>Suspension and steering</li>
-            <li>Engine and transmission work in Montgomery County TX</li>
-          </ul>
-          <div className="buttons-container">
-            <a href="/services/mobile-mechanic" className="learn-more">Learn More</a>
-          </div>
-        </div>
 
+      {/* Group 1: Diagnostic & Inspection Services (Bookable) */}
+      <h3 className="text-xl font-bold mt-8 mb-4 text-center">Diagnostic & Inspection Services</h3>
+      <div className="service-card">
         <div className="service-item">
           <h3>Mobile Auto Diagnostics in Kingwood TX</h3>
           <Image 
@@ -85,64 +67,7 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/auto-diagnostics" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/check-engine-light-diagnostic-100')} className="book-now-btn">Book Now</button>
-          </div>
-        </div>
-
-        <div className="service-item">
-          <h3>Car Accessories Installation in Montgomery County TX</h3>
-          <Image 
-            src="/images/car-install-montgomerytx.jpg"
-            alt="Car accessories installation near me in Montgomery County TX for dash cams, GPS, and audio upgrades in The Woodlands TX"
-            width={400}
-            height={300}
-            loading="lazy"
-          />
-          <ul>
-            <li>Dash cams and GPS systems</li>
-            <li>Audio and entertainment upgrades in The Woodlands TX</li>
-            <li>Custom lighting and more near me in Kingwood TX</li>
-          </ul>
-          <div className="buttons-container">
-            <a href="/services/car-accessories" className="learn-more">Learn More</a>
-          </div>
-        </div>
-
-        <div className="service-item">
-          <h3>Fleet Maintenance Near Me in The Woodlands TX</h3>
-          <Image 
-            src="/images/fleet-repair-montgomerytx.jpg"
-            alt="Fleet maintenance services near me in The Woodlands TX with regular inspections and repairs in Kingwood TX"
-            width={400}
-            height={300}
-            loading="lazy"
-          />
-          <ul>
-            <li>Tailored plans for businesses in Kingwood TX</li>
-            <li>Regular inspections and repairs</li>
-            <li>Minimize downtime near me in The Woodlands TX</li>
-          </ul>
-          <div className="buttons-container">
-            <a href="/services/fleet-maintenance" className="learn-more">Learn More</a>
-          </div>
-        </div>
-
-        <div className="service-item">
-          <h3>Hybrid and EV Services Near Me in Montgomery County TX</h3>
-          <Image 
-            src="/images/hybrid-ev.jpg"
-            alt="Hybrid and EV repair near me in Montgomery County TX with battery diagnostics and specialized repairs in The Woodlands TX"
-            width={400}
-            height={300}
-            loading="lazy"
-          />
-          <ul>
-            <li>Battery diagnostics and replacement in The Woodlands TX</li>
-            <li>Specialized hybrid repairs</li>
-            <li>Eco-friendly solutions near me in Montgomery County TX</li>
-          </ul>
-          <div className="buttons-container">
-            <a href="/services/hybrid-ev" className="learn-more">Learn More</a>
+            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/check-engine-light-diagnostic-100')} className="book-now-btn">Book Now ($100)</button>
           </div>
         </div>
 
@@ -263,6 +188,88 @@ export default function Services() {
           <div className="buttons-container">
             <a href="/services/mobil-oil-change" className="learn-more">Learn More</a>
             <button onClick={() => openModal('https://calendly.com/david-toptechmobile/mobil-1-oil-change-fluid-check-120')} className="book-now-btn">Book Now ($120)</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Group 2: Other Mobile Services (Non-bookable) */}
+      <h3 className="text-xl font-bold mt-8 mb-4 text-center">Other Mobile Services</h3>
+      <div className="service-card">
+        <div className="service-item">
+          <h3>Mobile Mechanic in The Woodlands TX</h3>
+          <Image 
+            src="/images/mobile-mechanic-woodlands.jpg"
+            alt="Mobile mechanic near me in The Woodlands TX for on-site auto repair, tune-ups, and brake service in Kingwood TX"
+            width={400}
+            height={300}
+            loading="lazy"
+          />
+          <ul>
+            <li>On-site repairs at your home or office in Kingwood TX</li>
+            <li>Tune-ups and maintenance</li>
+            <li>Brake service and repair</li>
+            <li>Suspension and steering</li>
+            <li>Engine and transmission work in Montgomery County TX</li>
+          </ul>
+          <div className="buttons-container">
+            <a href="/services/mobile-mechanic" className="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <div className="service-item">
+          <h3>Car Accessories Installation in Montgomery County TX</h3>
+          <Image 
+            src="/images/car-install-montgomerytx.jpg"
+            alt="Car accessories installation near me in Montgomery County TX for dash cams, GPS, and audio upgrades in The Woodlands TX"
+            width={400}
+            height={300}
+            loading="lazy"
+          />
+          <ul>
+            <li>Dash cams and GPS systems</li>
+            <li>Audio and entertainment upgrades in The Woodlands TX</li>
+            <li>Custom lighting and more near me in Kingwood TX</li>
+          </ul>
+          <div className="buttons-container">
+            <a href="/services/car-accessories" className="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <div className="service-item">
+          <h3>Fleet Maintenance Near Me in The Woodlands TX</h3>
+          <Image 
+            src="/images/fleet-repair-montgomerytx.jpg"
+            alt="Fleet maintenance services near me in The Woodlands TX with regular inspections and repairs in Kingwood TX"
+            width={400}
+            height={300}
+            loading="lazy"
+          />
+          <ul>
+            <li>Tailored plans for businesses in Kingwood TX</li>
+            <li>Regular inspections and repairs</li>
+            <li>Minimize downtime near me in The Woodlands TX</li>
+          </ul>
+          <div className="buttons-container">
+            <a href="/services/fleet-maintenance" className="learn-more">Learn More</a>
+          </div>
+        </div>
+
+        <div className="service-item">
+          <h3>Hybrid and EV Services Near Me in Montgomery County TX</h3>
+          <Image 
+            src="/images/hybrid-ev.jpg"
+            alt="Hybrid and EV repair near me in Montgomery County TX with battery diagnostics and specialized repairs in The Woodlands TX"
+            width={400}
+            height={300}
+            loading="lazy"
+          />
+          <ul>
+            <li>Battery diagnostics and replacement in The Woodlands TX</li>
+            <li>Specialized hybrid repairs</li>
+            <li>Eco-friendly solutions near me in Montgomery County TX</li>
+          </ul>
+          <div className="buttons-container">
+            <a href="/services/hybrid-ev" className="learn-more">Learn More</a>
           </div>
         </div>
       </div>
