@@ -14,7 +14,7 @@ export default function Services() {
   const [vin, setVin] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const safeZips = ['77301', '77302', '77303', '77304', '77305', '77306', '77316', '77318', '77327', '77328', '77353', '77354', '77355', '77356', '77357', '77362', '77365', '77372', '77373', '77378', '77380', '77381', '77382', '77384', '77385', '77386', '77388', '77389', '77393'];
+  const safeZips = ['77382', '77381', '77380', '77384', '77389', '77354', '77355', '77385', '77316', '77356', '77301', '77302', '77303', '77304', '77306', '77318', '77327', '77328', '77333', '77339', '77353', '77357', '77358', '77362', '77365', '77372', '77378', '77387', '77393', '77447', '77873'];
 
   const openModal = (calendlyBase: string) => {
     setCurrentCalendlyBase(calendlyBase);
@@ -42,7 +42,7 @@ export default function Services() {
   };
 
   const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString()); // 1980-2025
-  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
+  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Acura', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   return (
     <section className="services-section">
@@ -66,7 +66,6 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/mobile-mechanic" className="learn-more">Learn More</a>
-            {/* No Book Now */}
           </div>
         </div>
 
@@ -106,7 +105,6 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/car-accessories" className="learn-more">Learn More</a>
-            {/* No Book Now */}
           </div>
         </div>
 
@@ -126,7 +124,6 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/fleet-maintenance" className="learn-more">Learn More</a>
-            {/* No Book Now */}
           </div>
         </div>
 
@@ -146,7 +143,6 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/hybrid-ev" className="learn-more">Learn More</a>
-            {/* No Book Now */}
           </div>
         </div>
 

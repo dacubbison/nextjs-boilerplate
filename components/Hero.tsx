@@ -16,7 +16,7 @@ export default function Hero() {
   const toggleCallModal = () => setIsCallModalOpen(!isCallModalOpen);
   const toggleBookModal = () => setIsBookModalOpen(!isBookModalOpen);
 
-  const safeZips = ['77382', '77381', '77380', '77384', '77389', '77354', '77355', '77385', '77316', '77356', '77379', '77069', '77375', '77388', '77301', '77302', '77303', '77304', '77306', '77318', '77327', '77328', '77357', '77362', '77365', '77372', '77378', '77393', '77090', '77014'];
+  const safeZips = ['77382', '77381', '77380', '77384', '77389', '77354', '77355', '77385', '77316', '77356', '77301', '77302', '77303', '77304', '77306', '77318', '77327', '77328', '77333', '77339', '77353', '77357', '77358', '77362', '77365', '77372', '77378', '77387', '77393'];
 
   const handleBookSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ export default function Hero() {
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
+    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(year)}&a2=${encodeURIComponent(make + ' ' + model)}&a3=${encodeURIComponent(address + ', ' + zip)}&a4=${encodeURIComponent(vin || 'N/A')}`;
     window.open(calendlyUrl, '_blank');
     toggleBookModal();
   };
@@ -46,6 +46,19 @@ export default function Hero() {
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic near me in The Woodlands TX">Call Now</button>
         <button onClick={toggleBookModal} className="book-now-btn" aria-label="Open booking modal for mobile mechanic service in Montgomery County TX">Book Now</button>
       </div>
+
+      {isCallModalOpen && (
+        <div className="modal-overlay" aria-modal="true" role="dialog">
+          <div className="book-modal-content">  {/* Reuse styling for consistency */}
+            <div className="modal-header">Contact Us</div>
+            <div className="book-form">  {/* Reuse form class for layout */}
+              <button onClick={() => window.location.href = 'tel:9365294748'} className="modal-btn call-btn">Call 936-529-4748</button>
+              <button onClick={() => window.location.href = 'sms:9365294748'} className="modal-btn text-btn">Text 936-529-4748</button>
+              <button type="button" onClick={toggleCallModal} className="modal-btn close-btn">Close</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {isBookModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
