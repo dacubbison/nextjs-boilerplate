@@ -344,6 +344,67 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 .service-item .book-now-btn:hover {
   background: #218838;
 }
+
+/* Media query for modals on mobile */
+@media (max-width: 768px) {
+  .book-modal-content {
+    width: 95%; /* Almost full-width on small screens */
+  }
+  .book-form {
+    gap: 10px; /* Tighter spacing */
+  }
+}
+
+/* Blog Styles */
+.blog-main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.blog-main h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.blog-main p {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+.blog-list li {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.blog-list h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+.blog-list p {
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Blog Post Styles */
+.blog-post {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.blog-post h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.blog-post p {
+  line-height: 1.6;
+}
+
+/* Service Area Table */
 .service-table {
   width: 100%;
   border-collapse: collapse;
@@ -356,14 +417,37 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .service-table th {
   background-color: #f2f2f2;
+  .service-area-main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.service-area-main h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.service-area-main p {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.service-table th, .service-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+.service-table th {
+  background-color: #007BFF;
+  color: white;
   font-weight: bold;
 }
-/* Media query for modals on mobile */
-@media (max-width: 768px) {
-  .book-modal-content {
-    width: 95%; /* Almost full-width on small screens */
-  }
-  .book-form {
-    gap: 10px; /* Tighter spacing */
-  }
+.service-table td {
+  background-color: #f9f9f9;
+}
 }
