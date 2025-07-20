@@ -1,4 +1,3 @@
-// Services.tsx
 'use client';
 
 import Image from 'next/image';
@@ -15,7 +14,7 @@ export default function Services() {
   const [vin, setVin] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const safeZips = ['77316', '77318', '77339', '77345', '77354', '77355', '77356', '77379', '77381', '77382', '77384', '77385', '77386', '77388', '77389'];
+  const safeZips = ['77301', '77302', '77303', '77304', '77305', '77306', '77316', '77318', '77327', '77328', '77353', '77354', '77355', '77356', '77357', '77362', '77365', '77372', '77373', '77378', '77380', '77381', '77382', '77384', '77385', '77386', '77388', '77389', '77393'];
 
   const openModal = (calendlyBase: string) => {
     setCurrentCalendlyBase(calendlyBase);
@@ -31,18 +30,19 @@ export default function Services() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!safeZips.includes(zip)) {
+    const cleanedZip = zip.trim().replace(/-/g, '');
+    if (!safeZips.includes(cleanedZip)) {
       setErrorMessage('You may be outside our service area. Please call us at 936-529-4748 for assistance.');
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `${currentCalendlyBase}?a1=${encodeURIComponent(zip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
+    const calendlyUrl = `${currentCalendlyBase}?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
     window.open(calendlyUrl, '_blank');
     setIsModalOpen(false);
   };
 
   const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString()); // 1980-2025
-  const makes = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'Hyundai', 'Kia', 'Subaru', 'Volkswagen', 'Mazda', 'BMW', 'Mercedes-Benz', 'Audi', 'Lexus', 'Acura', 'Jeep', 'Ram', 'GMC', 'Cadillac', 'Tesla'];
+  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   return (
     <section className="services-section">
@@ -66,7 +66,7 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/mobile-mechanic" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100')} className="book-now-btn">Book Now</button>
+            {/* No Book Now */}
           </div>
         </div>
 
@@ -74,19 +74,19 @@ export default function Services() {
           <h3>Mobile Auto Diagnostics in Kingwood TX</h3>
           <Image 
             src="/images/mobile-auto-diagnostics-woodlands.jpg"
-            alt="Mobile auto diagnostics near me in Kingwood TX with advanced tools for check engine light diagnosis in Montgomery County TX"
+            alt="Mobile auto diagnostics and check engine light diagnostic near me in Kingwood TX with advanced tools in Montgomery County TX"
             width={400}
             height={300}
             loading="lazy"
           />
           <ul>
             <li>Advanced diagnostic tools for vehicles in The Woodlands TX</li>
-            <li>Check engine light diagnosis</li>
-            <li>Quick and accurate results near me in Montgomery County TX</li>
+            <li>Check engine light diagnosis near me</li>
+            <li>Quick and accurate results in Montgomery County TX</li>
           </ul>
           <div className="buttons-container">
             <a href="/services/auto-diagnostics" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100')} className="book-now-btn">Book Now</button>
+            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/check-engine-light-diagnostic-100')} className="book-now-btn">Book Now</button>
           </div>
         </div>
 
@@ -106,7 +106,7 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/car-accessories" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100')} className="book-now-btn">Book Now</button>
+            {/* No Book Now */}
           </div>
         </div>
 
@@ -126,27 +126,7 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/fleet-maintenance" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100')} className="book-now-btn">Book Now</button>
-          </div>
-        </div>
-
-        <div className="service-item">
-          <h3>Mobile Oil Changes in Kingwood TX</h3>
-          <Image 
-            src="/images/mobile-oil-change-woodlands.jpg"
-            alt="Mobile oil change near me in Kingwood TX with high-quality Mobil One oil and engine health check in Montgomery County TX"
-            width={400}
-            height={300}
-            loading="lazy"
-          />
-          <ul>
-            <li>Convenient on-site service in Montgomery County TX</li>
-            <li>High-quality Mobil One oil</li>
-            <li>Engine health check near me in Kingwood TX</li>
-          </ul>
-          <div className="buttons-container">
-            <a href="/services/oil-changes" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/mobil-1-oil-change-fluid-check-120')} className="book-now-btn">Book Now</button>
+            {/* No Book Now */}
           </div>
         </div>
 
@@ -166,7 +146,7 @@ export default function Services() {
           </ul>
           <div className="buttons-container">
             <a href="/services/hybrid-ev" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/battery-electrical-check-80')} className="book-now-btn">Book Now</button>
+            {/* No Book Now */}
           </div>
         </div>
 
@@ -187,26 +167,6 @@ export default function Services() {
           <div className="buttons-container">
             <a href="/services/new-car-inspection" className="learn-more">Learn More</a>
             <button onClick={() => openModal('https://calendly.com/david-toptechmobile/new-car-inspection-100')} className="book-now-btn">Book Now ($100)</button>
-          </div>
-        </div>
-
-        <div className="service-item">
-          <h3>Check Engine Light Diagnostic</h3>
-          <Image 
-            src="/images/engine-diagnostics.jpg"
-            alt="Check engine light diagnostic near me in Kingwood TX with advanced tools"
-            width={400}
-            height={300}
-            loading="lazy"
-          />
-          <ul>
-            <li>Advanced scanning and diagnosis in The Woodlands TX</li>
-            <li>Identify and explain issues</li>
-            <li>Quick service near me in Montgomery County TX</li>
-          </ul>
-          <div className="buttons-container">
-            <a href="/services/check-engine-light" className="learn-more">Learn More</a>
-            <button onClick={() => openModal('https://calendly.com/david-toptechmobile/check-engine-light-diagnostic-100')} className="book-now-btn">Book Now ($100)</button>
           </div>
         </div>
 
@@ -311,7 +271,6 @@ export default function Services() {
         </div>
       </div>
 
-      {/* Shared Modal */}
       {isModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
           <div className="book-modal-content">
@@ -321,10 +280,7 @@ export default function Services() {
               <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for mobile mechanic service in The Woodlands TX" />
 
               <label htmlFor="zip">ZIP Code</label>
-              <select id="zip" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Select ZIP code for mobile mechanic near me in Montgomery County TX">
-                <option value="">Select ZIP</option>
-                {safeZips.map((z) => <option key={z} value={z}>{z}</option>)}
-              </select>
+              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Enter ZIP code for mobile mechanic near me in Montgomery County TX" placeholder="e.g., 77381" />
 
               <label htmlFor="year">Vehicle Year</label>
               <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select vehicle year for ASE-certified mobile mechanic service in Montgomery County TX">

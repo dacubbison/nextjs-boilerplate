@@ -1,4 +1,3 @@
-// Hero.tsx
 'use client';
 
 import { useState } from 'react';
@@ -17,37 +16,36 @@ export default function Hero() {
   const toggleCallModal = () => setIsCallModalOpen(!isCallModalOpen);
   const toggleBookModal = () => setIsBookModalOpen(!isBookModalOpen);
 
-  const safeZips = ['77316', '77318', '77339', '77345', '77354', '77355', '77356', '77379', '77381', '77382', '77384', '77385', '77386', '77388', '77389'];
+  const safeZips = ['77301', '77302', '77303', '77304', '77305', '77306', '77316', '77318', '77327', '77328', '77353', '77354', '77355', '77356', '77357', '77362', '77365', '77372', '77373', '77378', '77380', '77381', '77382', '77384', '77385', '77386', '77388', '77389', '77393'];
 
   const handleBookSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!safeZips.includes(zip)) {
+    const cleanedZip = zip.trim().replace(/-/g, ''); // Normalize input
+    if (!safeZips.includes(cleanedZip)) {
       setErrorMessage('You may be outside our service area. Please call us at 936-529-4748 for assistance.');
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(zip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
+    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
     window.open(calendlyUrl, '_blank');
     toggleBookModal();
   };
 
   const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString()); // 1980-2025
-  const makes = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'Nissan', 'Hyundai', 'Kia', 'Subaru', 'Volkswagen', 'Mazda', 'BMW', 'Mercedes-Benz', 'Audi', 'Lexus', 'Acura', 'Jeep', 'Ram', 'GMC', 'Cadillac', 'Tesla'];
+  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   return (
-    <div className="hero-section"> {/* Assume this has background-image CSS */}
-      <div className="hero-text"> {/* Add this for overlay styling */}
+    <div className="hero-section">
+      <div className="hero-text">
         <h1>Mobile Mechanic in The Woodlands TX - Top Tech: ASE-Certified</h1>
         <p>Your trusted mobile mechanic near me in The Woodlands, Montgomery County, and Kingwood TX.</p>
+        <p>Fair and upfront pricing—share your shop quote, and we'll often beat it by up to 50%!</p>
         <p>Call or Text for a Free Quote: 936-529-4748</p>
-        <p>Share Your Shop Quote - We Often Beat It by Up to 50%!</p>
       </div>
       <div className="hero-buttons">
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic near me in The Woodlands TX">Call Now</button>
         <button onClick={toggleBookModal} className="book-now-btn" aria-label="Open booking modal for mobile mechanic service in Montgomery County TX">Book Now</button>
       </div>
-
-      {/* Call Modal - unchanged (assuming it's defined elsewhere or add it here if needed) */}
 
       {isBookModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
@@ -58,10 +56,7 @@ export default function Hero() {
               <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for mobile mechanic service in The Woodlands TX" />
 
               <label htmlFor="zip">ZIP Code</label>
-              <select id="zip" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Select ZIP code for mobile mechanic near me in Montgomery County TX">
-                <option value="">Select ZIP</option>
-                {safeZips.map((z) => <option key={z} value={z}>{z}</option>)}
-              </select>
+              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Enter ZIP code for mobile mechanic near me in Montgomery County TX" placeholder="e.g., 77381" />
 
               <label htmlFor="year">Vehicle Year</label>
               <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select vehicle year for ASE-certified mobile mechanic service in Montgomery County TX">
