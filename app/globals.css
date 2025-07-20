@@ -75,7 +75,7 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .call-now-btn {
   background: #007BFF; /* Blue */
-  color: white;
+  color: white !important; /* Ensure white text */
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -84,7 +84,7 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .book-now-btn {
   background: #28A745; /* Green */
-  color: white;
+  color: white !important; /* Ensure white text visibility */
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -271,6 +271,11 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   border-radius: 4px;
   font-size: 1rem;
   background: #f9f9f9; /* Light bg for inputs */
+  color: #333 !important; /* Dark text for visibility */
+}
+.book-form input::placeholder,
+.book-form select::placeholder {
+  color: #666 !important; /* Darker gray for placeholders */
 }
 .book-form input:focus,
 .book-form select:focus {
