@@ -17,7 +17,7 @@ const postData = {
   // Add more posts
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; // Await params in Next.js for dynamic routes
   const post = postData[slug];
   if (!post) return { title: 'Post Not Found' };
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; // Await params
   const post = postData[slug];
   if (!post) return <h1>Post Not Found</h1>;
