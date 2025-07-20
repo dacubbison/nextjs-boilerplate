@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.container {
-  max-width: 1200px;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #333; }
+
+/* Hero Section (optimized with background image from new) */
+.hero-section {
+  background-image: url('/images/mobile-mechanic-kingwood-tx.png');
+  background-size: cover;
+  background-position: center;
 }
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Services, Quote, Footer styles from new version... (keep all from your provided globals.css, add above if missing) */
+/* ... (paste the rest of your new globals.css here, e.g., .services-section, .quote-form-section, etc.) */
