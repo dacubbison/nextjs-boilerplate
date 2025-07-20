@@ -4,12 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
 
-export const metadata = {
-  title: 'Mobil 1 Oil Change Near Me in Montgomery County TX | Top Tech Mobile',
-  description: 'Convenient mobile oil changes using high-quality Mobil 1 oil in The Woodlands and Kingwood TX with fair and upfront pricing.',
-  keywords: 'mobil 1 oil change near me Montgomery County TX, mobile oil service The Woodlands TX, synthetic oil change Kingwood TX',
-};
-
 export default function MobilOilChange() {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [address, setAddress] = useState('');
