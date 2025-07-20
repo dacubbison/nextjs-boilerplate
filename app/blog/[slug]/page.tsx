@@ -1,7 +1,14 @@
 import Script from 'next/script';
 
+type Post = {
+  title: string;
+  content: string;
+  date: string;
+  keywords: string;
+};
+
 // Sample post content (expand with real content or MDX)
-const postData = {
+const postData: Record<string, Post> = {
   'how-to-choose-mobile-mechanic-woodlands-tx': {
     title: 'How to Choose a Mobile Mechanic in The Woodlands TX',
     content: 'When searching for a mobile mechanic near me in The Woodlands TX, look for ASE-certified techs like Top Tech Mobile. We offer on-site repairs in Montgomery County with fair pricing... [Full article text here].',
