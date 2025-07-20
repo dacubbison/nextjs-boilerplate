@@ -1,4 +1,3 @@
-// File: app/page.tsx
 import Script from 'next/script';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -7,12 +6,16 @@ import Footer from '../components/Footer';
 
 export const metadata = {
   title: 'Mobile Mechanic in The Woodlands TX - Top Tech Mobile: ASE-Certified Services',
-  description: 'Reliable mobile mechanic near me in The Woodlands, Kingwood, and Montgomery County TX. On-site auto repairs, diagnostics, oil changes, and hybrid/EV services at competitive prices.',
+  description: 'Reliable mobile mechanic near me in The Woodlands, Kingwood, and Montgomery County TX with on-site repairs and diagnostics.',
 };
 
 export default function Home() {
   return (
     <main>
+      <Hero />
+      <Services />
+      <QuoteForm />
+      <Footer />
       <Script
         type="application/ld+json"
         strategy="afterInteractive"
@@ -43,13 +46,10 @@ export default function Home() {
             "closes": "18:00"
           },
           "url": "https://toptechmobile.com",
-          "priceRange": "$$"
+          "priceRange": "$$",
+          "sameAs": ["https://twitter.com/yourhandle", "https://facebook.com/yourpage"] // Add social links for E-E-A-T
         })}
       </Script>
-      <Hero />
-      <Services />
-      <QuoteForm />
-      <Footer />
     </main>
   );
 }
