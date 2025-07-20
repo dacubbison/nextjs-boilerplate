@@ -1,5 +1,6 @@
 import Script from 'next/script';
 
+// Sample post content (expand with real content or MDX)
 const postData = {
   'how-to-choose-mobile-mechanic-woodlands-tx': {
     title: 'How to Choose a Mobile Mechanic in The Woodlands TX',
@@ -16,8 +17,9 @@ const postData = {
   // Add more posts
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = postData[params.slug];
+export async function generateMetadata({ params }) {
+  const { slug } = await params; // Await params in Next.js for dynamic routes
+  const post = postData[slug];
   if (!post) return { title: 'Post Not Found' };
 
   return {
@@ -27,8 +29,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function Post({ params }: { params: { slug: string } }) {
-  const post = postData[params.slug];
+export default async function Post({ params }) {
+  const { slug } = await params; // Await params
+  const post = postData[slug];
   if (!post) return <h1>Post Not Found</h1>;
 
   return (
