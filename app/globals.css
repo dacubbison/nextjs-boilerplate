@@ -417,7 +417,10 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .service-table th {
   background-color: #f2f2f2;
-  .service-area-main {
+}
+
+/* Service Area Main */
+.service-area-main {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -450,4 +453,21 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 .service-table td {
   background-color: #f9f9f9;
 }
+
+/* Authorization and Signature Styles */
+.authorization-text {
+  max-height: 150px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+.sig-canvas {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #ddd;
+  background: white;
 }

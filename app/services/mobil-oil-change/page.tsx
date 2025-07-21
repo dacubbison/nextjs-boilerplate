@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
+import Link from 'next/link';
+import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function MobilOilChange() {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
@@ -34,79 +36,112 @@ export default function MobilOilChange() {
   const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString());
   const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
+  // Countdown for urgency (ends 8/20/2025)
+  const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
+
   return (
-    <main>
-      <section className="service-hero">
-        <h1>Mobil 1 Oil Change Near Me in Montgomery County TX</h1>
-        <p>Premium synthetic oil changes with fluid checks on-site in The Woodlands TX with fair and upfront pricing.</p>
-        <Image src="/images/mobile-oil-change-woodlands.jpg" alt="Mobile mechanic performing Mobil 1 oil change in Montgomery County TX" width={800} height={400} loading="lazy" />
+    <main className="max-w-4xl mx-auto p-6">
+      {/* Hero Section - Visual + Value Prop */}
+      <section className="service-hero text-center mb-8">
+        <h1 className="text-3xl font-bold mb-4">Mobil 1 Oil Change Near Me in Montgomery County TX</h1>
+        <p className="text-lg mb-4">Premium synthetic oil changes with fluid checks on-site in The Woodlands TX. Fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
+        <Image 
+          src="/images/mobile-oil-change-woodlands.jpg" 
+          alt="Mobile mechanic performing Mobil 1 oil change near me in Montgomery County TX" 
+          width={800} 
+          height={400} 
+          loading="lazy" 
+          className="rounded mx-auto"
+        />
       </section>
 
-      <section className="service-details">
-        <h2>Our Mobil 1 Oil Change Services</h2>
-        <p>High-quality oil and filter replacement to keep your engine running smoothly.</p>
-        <ul>
-          <li>Premium Mobil 1 synthetic oil</li>
-          <li>Fluid level checks and top-ups</li>
-          <li>Filter replacement included</li>
+      {/* Details Section - What We Check + Benefits */}
+      <section className="service-details mb-8">
+        <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our Mobil 1 Oil Change Services</h2>
+        <p className="mb-4">High-quality oil and filter replacement to keep your engine running smoothly in Kingwood TX. We come to you—no shop wait.</p>
+        <ul className="list-disc pl-5 mb-4 space-y-2">
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Premium Mobil 1 synthetic oil for optimal performance</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Fluid level checks and top-ups (coolant, brake fluid, etc.)</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Filter replacement and basic vehicle inspection</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Eco-friendly disposal of old oil near me in Montgomery County TX</li>
+        </ul>
+        <p className="font-bold">Pricing: Starts at $120. Benefits: Extend engine life and improve fuel efficiency—10% off for new customers!</p>
+      </section>
+
+      {/* FAQs Section - Upgraded to Accordions */}
+      <section className="faqs mb-8">
+        <h2 className="text-2xl font-bold mb-4">FAQs About Oil Changes in Montgomery County TX</h2>
+        <details className="mb-2 bg-white p-4 rounded shadow">
+          <summary className="font-bold cursor-pointer">How often should I change oil?</summary>
+          <p>Every 5,000-7,500 miles for synthetic; we can advise based on your vehicle in The Woodlands TX.</p>
+        </details>
+        <details className="mb-2 bg-white p-4 rounded shadow">
+          <summary className="font-bold cursor-pointer">What is included in the service?</summary>
+          <p>Oil, filter, fluid checks, and basic inspection for $120 on-site in Kingwood TX.</p>
+        </details>
+        <details className="mb-2 bg-white p-4 rounded shadow">
+          <summary className="font-bold cursor-pointer">Why Mobil 1 synthetic?</summary>
+          <p>Better protection and performance for modern engines—recommended for most vehicles near me.</p>
+        </details>
+      </section>
+
+      {/* Related Services - Cross-Selling */}
+      <section className="related-services mb-8">
+        <h2 className="text-2xl font-bold mb-4 text-center">Related Mobile Services</h2>
+        <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+          <li><Link href="/services/auto-diagnostics" className="text-blue-600 hover:underline flex items-center justify-center"><ChevronRightIcon className="h-5 w-5 mr-1" /> Auto Diagnostics</Link></li>
+          <li><Link href="/services/brake-inspection" className="text-blue-600 hover:underline flex items-center justify-center"><ChevronRightIcon className="h-5 w-5 mr-1" /> Brake Inspection</Link></li>
+          <li><Link href="/services/battery-electrical" className="text-blue-600 hover:underline flex items-center justify-center"><ChevronRightIcon className="h-5 w-5 mr-1" /> Battery Check</Link></li>
         </ul>
       </section>
 
-      <section className="faqs">
-        <h2>FAQs about Oil Changes in Montgomery County TX</h2>
-        <details>
-          <summary>How often should I change oil?</summary>
-          <p>Every 5,000-7,500 miles for synthetic; we can advise based on your vehicle.</p>
-        </details>
-        <details>
-          <summary>What is included in the service?</summary>
-          <p>Oil, filter, and basic checks for $120.</p>
-        </details>
-      </section>
-
-      <div className="cta-buttons">
-        <button onClick={toggleBookModal} className="book-now-btn">Book Now ($120)</button>
-        <a href="tel:9365294748" className="call-now-btn">Call Now</a>
+      {/* CTAs */}
+      <div className="cta-buttons text-center mb-8">
+        <button onClick={toggleBookModal} className="book-now-btn mr-4">Book Now ($120)</button>
+        <a href="tel:9365294748" className="call-now-btn">Call Now: 936-529-4748</a>
       </div>
 
+      {/* Booking Modal */}
       {isBookModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
           <div className="book-modal-content">
             <div className="modal-header">Book Oil Change</div>
             <form onSubmit={handleBookSubmit} className="book-form">
               <label htmlFor="address">Full Address</label>
-              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
+              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for Mobil 1 oil change in The Woodlands TX" />
 
               <label htmlFor="zip">ZIP Code</label>
-              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required placeholder="e.g., 77381" />
+              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required placeholder="e.g., 77381" aria-label="Enter ZIP for mobile oil change near me in Montgomery County TX" />
 
               <label htmlFor="year">Vehicle Year</label>
-              <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required>
+              <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select year for oil change service in Kingwood TX">
                 <option value="">Select Year</option>
                 {years.map((y) => <option key={y} value={y}>{y}</option>)}
               </select>
 
               <label htmlFor="make">Vehicle Make</label>
-              <select id="make" value={make} onChange={(e) => setMake(e.target.value)} required>
+              <select id="make" value={make} onChange={(e) => setMake(e.target.value)} required aria-label="Select make for synthetic oil change near me">
                 <option value="">Select Make</option>
                 {makes.map((m) => <option key={m} value={m}>{m}</option>)}
               </select>
 
               <label htmlFor="model">Vehicle Model</label>
-              <input id="model" type="text" value={model} onChange={(e) => setModel(e.target.value)} required />
+              <input id="model" type="text" value={model} onChange={(e) => setModel(e.target.value)} required aria-label="Enter model for mobile mechanic oil change in The Woodlands TX" />
 
               <label htmlFor="vin">VIN (Optional)</label>
-              <input id="vin" type="text" value={vin} onChange={(e) => setVin(e.target.value)} />
+              <input id="vin" type="text" value={vin} onChange={(e) => setVin(e.target.value)} aria-label="Enter VIN for oil change quote in Montgomery County TX" />
 
               {errorMessage && <p className="error-message">{errorMessage} <a href="tel:9365294748">Call Now</a></p>}
 
-              <button type="submit" className="modal-btn submit-btn">Submit & Book</button>
-              <button type="button" onClick={toggleBookModal} className="modal-btn close-btn">Close</button>
+              <button type="submit" className="modal-btn submit-btn" aria-label="Submit and book Mobil 1 oil change near me">Submit & Book</button>
+              <button type="button" onClick={toggleBookModal} className="modal-btn close-btn" aria-label="Close booking modal">Close</button>
             </form>
           </div>
         </div>
       )}
 
+      {/* Enhanced Schema for SEO */}
       <Script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
@@ -114,16 +149,41 @@ export default function MobilOilChange() {
           "serviceType": "Mobil 1 Oil Change",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Top Tech Mobile",
+            "name": "Top Tech Mobile Mechanic",
             "telephone": "936-529-4748",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "The Woodlands",
-              "addressRegion": "TX"
+              "addressRegion": "TX",
+              "postalCode": "77381"
+            },
+            "priceRange": "$$",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Mobile Oil Change Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Mobil 1 Oil Change"
+                  },
+                  "price": "120",
+                  "priceCurrency": "USD"
+                }
+              ]
             }
           },
-          "areaServed": "The Woodlands TX, Montgomery County TX, Kingwood TX",
-          "description": "Mobile oil change services using Mobil 1 with fair pricing."
+          "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+              "@type": "GeoCoordinates",
+              "latitude": 30.1658,
+              "longitude": -95.4613
+            },
+            "geoRadius": "50000"
+          },
+          "description": "Mobile oil change services using Mobil 1 synthetic oil near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fluid checks and fair pricing."
         })}
       </Script>
     </main>
