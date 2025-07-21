@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
 
-export default function MobilOilChange() {
+export default function MobileMechanic() {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
@@ -26,7 +26,7 @@ export default function MobilOilChange() {
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/mobil-1-oil-change-fluid-check-120?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
+    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
     window.open(calendlyUrl, '_blank');
     toggleBookModal();
   };
@@ -37,42 +37,44 @@ export default function MobilOilChange() {
   return (
     <main>
       <section className="service-hero">
-        <h1>Mobil 1 Oil Change Near Me in Montgomery County TX</h1>
-        <p>Premium synthetic oil changes with fluid checks on-site in The Woodlands TX with fair and upfront pricing.</p>
-        <Image src="/images/mobile-oil-change-woodlands.jpg" alt="Mobile mechanic performing Mobil 1 oil change in Montgomery County TX" width={800} height={400} loading="lazy" />
+        <h1>Mobile Mechanic Services in The Woodlands TX</h1>
+        <p>On-site auto repairs and maintenance in The Woodlands TX with fair and upfront pricing.</p>
+        <Image src="/images/mobile-mechanic-woodlands.jpg" alt="Mobile mechanic performing on-site auto repair in The Woodlands TX" width={800} height={400} loading="lazy" />
       </section>
 
       <section className="service-details">
-        <h2>Our Mobil 1 Oil Change Services</h2>
-        <p>High-quality oil and filter replacement to keep your engine running smoothly.</p>
+        <h2>Our Mobile Mechanic Services</h2>
+        <p>Expert repairs brought to your location for convenience and savings.</p>
         <ul>
-          <li>Premium Mobil 1 synthetic oil</li>
-          <li>Fluid level checks and top-ups</li>
-          <li>Filter replacement included</li>
+          <li>On-site repairs at your home or office</li>
+          <li>Tune-ups and maintenance</li>
+          <li>Brake service and repair</li>
+          <li>Suspension and steering</li>
+          <li>Engine and transmission work</li>
         </ul>
       </section>
 
       <section className="faqs">
-        <h2>FAQs about Oil Changes in Montgomery County TX</h2>
+        <h2>FAQs about Mobile Mechanic Services in The Woodlands TX</h2>
         <details>
-          <summary>How often should I change oil?</summary>
-          <p>Every 5,000-7,500 miles for synthetic; we can advise based on your vehicle.</p>
+          <summary>What types of repairs do you offer?</summary>
+          <p>We handle brakes, suspension, engine, transmission, and more on-site.</p>
         </details>
         <details>
-          <summary>What is included in the service?</summary>
-          <p>Oil, filter, and basic checks for $120.</p>
+          <summary>How much do you save compared to shops?</summary>
+          <p>Up to 50% by coming to you—share your quote for a match!</p>
         </details>
       </section>
 
       <div className="cta-buttons">
-        <button onClick={toggleBookModal} className="book-now-btn">Book Now ($120)</button>
+        <button onClick={toggleBookModal} className="book-now-btn">Book Now</button>
         <a href="tel:9365294748" className="call-now-btn">Call Now</a>
       </div>
 
       {isBookModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
           <div className="book-modal-content">
-            <div className="modal-header">Book Oil Change</div>
+            <div className="modal-header">Book Mobile Mechanic Service</div>
             <form onSubmit={handleBookSubmit} className="book-form">
               <label htmlFor="address">Full Address</label>
               <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
@@ -111,7 +113,7 @@ export default function MobilOilChange() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "serviceType": "Mobil 1 Oil Change",
+          "serviceType": "Mobile Mechanic Services",
           "provider": {
             "@type": "LocalBusiness",
             "name": "Top Tech Mobile",
@@ -123,7 +125,7 @@ export default function MobilOilChange() {
             }
           },
           "areaServed": "The Woodlands TX, Montgomery County TX, Kingwood TX",
-          "description": "Mobile oil change services using Mobil 1 with fair pricing."
+          "description": "On-site auto repairs, tune-ups, brake service, suspension, and engine work with fair pricing."
         })}
       </Script>
     </main>
