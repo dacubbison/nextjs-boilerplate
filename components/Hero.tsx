@@ -41,6 +41,7 @@ export default function Hero() {
         <p>Your trusted mobile mechanic near me in The Woodlands, Montgomery County, and Kingwood TX.</p>
         <p>Fair and upfront pricing—share your shop quote, and we'll often beat it by up to 50%!</p>
         <p>Call or Text for a Free Quote: 936-529-4748</p>
+        <p className="text-green-500 font-bold">New Customer Special: 10% off your first service! (Valid through 8/20/2025)</p>
       </div>
       <div className="hero-buttons">
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic near me in The Woodlands TX">Call Now</button>
@@ -49,9 +50,9 @@ export default function Hero() {
 
       {isCallModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
-          <div className="book-modal-content">  {/* Reuse styling for consistency */}
+          <div className="book-modal-content">
             <div className="modal-header">Contact Us</div>
-            <div className="book-form">  {/* Reuse form class for layout */}
+            <div className="book-form">
               <button onClick={() => window.location.href = 'tel:9365294748'} className="modal-btn call-btn">Call 936-529-4748</button>
               <button onClick={() => window.location.href = 'sms:9365294748'} className="modal-btn text-btn">Text 936-529-4748</button>
               <button type="button" onClick={toggleCallModal} className="modal-btn close-btn">Close</button>
