@@ -94,11 +94,12 @@ export default function Services() {
         <div className="service-item">
           <h3>Battery Electrical Check</h3>
           <Image 
-            src="/images/mobile-auto-diagnostics-woodlands.jpg"
+            src="/images/battery-test-3.jpg"
             alt="Battery electrical check near me in The Woodlands TX for reliable starting and charging systems"
             width={400}
-            height={300}
+            height={200} // Reduced height to match other services, ensuring it fits without stretching
             loading="lazy"
+            className="object-cover" // Crops the image to fit the 400x200 dimensions
           />
           <ul>
             <li>Battery testing and replacement in Kingwood TX</li>
@@ -114,7 +115,7 @@ export default function Services() {
         <div className="service-item">
           <h3>General Vehicle Diagnostic</h3>
           <Image 
-            src="/images/mobile-auto-diagnostics-woodlands.jpg"
+            src="/images/fuel-pump-repair.jpg"
             alt="General vehicle diagnostic near me in Montgomery County TX with comprehensive checks"
             width={400}
             height={300}
@@ -280,10 +281,10 @@ export default function Services() {
             <div className="modal-header">Book Appointment</div>
             <form onSubmit={handleSubmit} className="book-form">
               <label htmlFor="address">Full Address</label>
-              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for mobile mechanic service in The Woodlands TX" />
+              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for ASE-certified mobile mechanic service in Montgomery County TX" />
 
               <label htmlFor="zip">ZIP Code</label>
-              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Enter ZIP code for mobile mechanic near me in Montgomery County TX" placeholder="e.g., 77381" />
+              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required placeholder="e.g., 77381" aria-label="Enter ZIP code for mobile mechanic near me in Montgomery County TX" />
 
               <label htmlFor="year">Vehicle Year</label>
               <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select vehicle year for ASE-certified mobile mechanic service in Montgomery County TX">
