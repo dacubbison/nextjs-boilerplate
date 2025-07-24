@@ -9,7 +9,7 @@ import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 export default function ACDiagnostic() {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [showEmbed, setShowEmbed] = useState(false);
-  const [prefill, setPrefill] = useState(null);
+  const [prefill, setPrefill] = useState<{ customAnswers: { a1: string; a2: string; a3: string; a4: string; a5: string; a6: string; } } | null>(null);
   const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
   const [year, setYear] = useState('');
@@ -106,7 +106,7 @@ export default function ACDiagnostic() {
       {/* CTAs */}
       <div className="cta-buttons text-center mb-8">
         <button onClick={toggleBookModal} className="book-now-btn mr-4">Book Now ($80)</button>
-        <a href="tel:936-529-4748" className="call-now-btn">Call Now: 936-529-4748</a>
+        <a href="tel:9365294748" className="call-now-btn">Call Now: 936-529-4748</a>
       </div>
 
       {/* Booking Modal with Form for Prefill */}
