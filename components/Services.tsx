@@ -99,7 +99,7 @@ export default function Services() {
             width={400}
             height={200} // Reduced height to match other services, ensuring it fits without stretching
             loading="lazy"
-            className="object-cover" // Crops the image to fit the 400x200 dimensions
+            className="object-cover" // Crops the image to fit the 2:1 aspect ratio
           />
           <ul>
             <li>Battery testing and replacement in Kingwood TX</li>
@@ -155,11 +155,12 @@ export default function Services() {
         <div className="service-item">
           <h3>Brake Inspection</h3>
           <Image 
-            src="/images/brake-service.jpg"
-            alt="Brake inspection near me in The Woodlands TX by mobile mechanic"
+            src="/images/brake-service-2.jpg"
+            alt="Brake inspection near me in The Woodlands TX by ASE-certified mobile mechanic with new rotors and pads"
             width={400}
             height={300}
             loading="lazy"
+            className="object-cover"
           />
           <ul>
             <li>Full brake system check in Kingwood TX</li>
