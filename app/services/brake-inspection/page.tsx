@@ -6,12 +6,6 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
-export const metadata = {
-  title: 'Mobile Brake Inspection Near Me in The Woodlands TX | Top Tech Mobile Mechanic',
-  description: 'On-site brake checks and repairs in Montgomery County TX and Kingwood TX. ASE-certified, fair pricing—beat shops by 50%. Book now for 10% off!',
-  keywords: 'brake inspection near me brake check The Woodlands TX mobile brake repair Kingwood TX rotor pad replacement Montgomery County TX',
-};
-
 export default function BrakeInspection() {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [address, setAddress] = useState('');
@@ -190,7 +184,7 @@ export default function BrakeInspection() {
             "geoMidpoint": {
               "@type": "GeoCoordinates",
               "latitude": 30.1658,
-              "longitude": -95.4613
+              "longitude": -95.4613"
             },
             "geoRadius": "50000"
           },
