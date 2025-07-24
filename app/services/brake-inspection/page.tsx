@@ -6,6 +6,12 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
+export const metadata = {
+  title: 'Mobile Brake Inspection Near Me in The Woodlands TX | Top Tech Mobile Mechanic',
+  description: 'On-site brake checks and repairs in Montgomery County TX and Kingwood TX. ASE-certified, fair pricing—beat shops by 50%. Book now for 10% off!',
+  keywords: 'brake inspection near me brake check The Woodlands TX mobile brake repair Kingwood TX rotor pad replacement Montgomery County TX',
+};
+
 export default function BrakeInspection() {
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
   const [address, setAddress] = useState('');
@@ -28,7 +34,7 @@ export default function BrakeInspection() {
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/brake-inspection-80?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
+    const calendlyUrl = `https://calendly.com/david-toptechmobile/brake-inspection-80?a1=${encodeURIComponent(year)}&a2=${encodeURIComponent(`${make} ${model}`)}&a3=${encodeURIComponent(`${address}, ${cleanedZip}`)}&a4=${encodeURIComponent(vin ? `VIN: ${vin}` : 'Brake Inspection requested')}`;
     window.open(calendlyUrl, '_blank');
     toggleBookModal();
   };
@@ -37,7 +43,7 @@ export default function BrakeInspection() {
   const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   // Countdown for urgency (ends 8/20/2025)
-  const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date('2025-07-21T00:00:00-05:00').getTime()) / (1000 * 3600 * 24));
+  const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
     <main className="max-w-4xl mx-auto p-6">
@@ -47,7 +53,7 @@ export default function BrakeInspection() {
         <p className="text-lg mb-4">Safety-focused brake checks and repairs on-site in Montgomery County TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
-          src="/images/brake-service.jpg" 
+          src="/images/ai-brake-inspection.jpg" 
           alt="ASE-certified mechanic inspecting brakes near me in The Woodlands TX" 
           width={400} 
           height={200} 
@@ -68,6 +74,12 @@ export default function BrakeInspection() {
         <p className="font-bold">Pricing: Starts at $80. Benefits: Ensure safety—10% off for new customers!</p>
       </section>
 
+      {/* Testimonials Section - Social Proof */}
+      <section className="testimonials mb-8">
+        <h2 className="text-2xl font-bold mb-4 text-center">What Our Customers Say</h2>
+        <p className="text-center mt-4">5-star rated on Google. <a href="https://www.google.com/search?q=top+tech+mobile+mechanic+the+woodlands+tx" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">See our reviews!</a></p>
+      </section>
+
       {/* FAQs Section - Upgraded to Accordions */}
       <section className="faqs mb-8">
         <h2 className="text-2xl font-bold mb-4">FAQs About Brake Inspections in The Woodlands TX</h2>
@@ -78,6 +90,10 @@ export default function BrakeInspection() {
         <details className="mb-2 bg-white p-4 rounded shadow">
           <summary className="font-bold cursor-pointer">What is the inspection cost?</summary>
           <p>$80 with clear repair quotes in Montgomery County TX.</p>
+        </details>
+        <details className="mb-2 bg-white p-4 rounded shadow">
+          <summary className="font-bold cursor-pointer">How often should I inspect brakes in Texas heat?</summary>
+          <p>More frequently due to wear—every 6 months recommended for safety.</p>
         </details>
       </section>
 

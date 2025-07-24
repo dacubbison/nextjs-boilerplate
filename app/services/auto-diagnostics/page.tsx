@@ -43,12 +43,12 @@ export default function AutoDiagnostics() {
     <main className="max-w-4xl mx-auto p-6">
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
-        <h1 className="text-3xl font-bold mb-4">Mobile Auto Diagnostics Near Me in Kingwood TX</h1>
-        <p className="text-lg mb-4">Advanced diagnostic tools for vehicles in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <h1 className="text-3xl font-bold mb-4">Mobile Auto Diagnostics in The Woodlands, Kingwood, and Montgomery County TX</h1>
+        <p className="text-lg mb-4">Advanced diagnostic tools for vehicles with fair and upfront pricing—often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/mobile-auto-diagnostics-woodlands.jpg" 
-          alt="Mobile auto diagnostics and check engine light diagnostic near me in Kingwood TX with advanced tools in Montgomery County TX" 
+          alt="Mobile auto diagnostics and check engine light diagnostic near me with advanced tools" 
           width={400} 
           height={200} 
           loading="lazy" 
@@ -59,25 +59,25 @@ export default function AutoDiagnostics() {
       {/* Details Section - What We Check + Benefits */}
       <section className="service-details mb-8">
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our Mobile Auto Diagnostics Services</h2>
-        <p className="mb-4">Quick and accurate diagnostics for check engine lights and performance issues on-site in Montgomery County TX.</p>
+        <p className="mb-4">Quick and accurate diagnostics for check engine lights and performance issues on-site.</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Advanced diagnostic tools for vehicles in The Woodlands TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Advanced diagnostic tools for vehicles in The Woodlands, Kingwood, and Montgomery County TX</li>
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Check engine light diagnosis near me</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Quick and accurate results in Montgomery County TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Quick and accurate results</li>
         </ul>
         <p className="font-bold">Pricing: Starts at $100. Benefits: Identify issues fast—10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
       <section className="faqs mb-8">
-        <h2 className="text-2xl font-bold mb-4">FAQs About Mobile Auto Diagnostics in Kingwood TX</h2>
+        <h2 className="text-2xl font-bold mb-4">FAQs About Mobile Auto Diagnostics</h2>
         <details className="mb-2 bg-white p-4 rounded shadow">
           <summary className="font-bold cursor-pointer">What does auto diagnostics cover?</summary>
-          <p>Full scan for engine codes, performance issues, and more using advanced tools in The Woodlands TX.</p>
+          <p>Full scan for engine codes, performance issues, and more using advanced tools in The Woodlands, Kingwood, and Montgomery County TX.</p>
         </details>
         <details className="mb-2 bg-white p-4 rounded shadow">
           <summary className="font-bold cursor-pointer">What is the diagnostic cost?</summary>
-          <p>$100 with no hidden fees in Montgomery County TX.</p>
+          <p>$100 with no hidden fees.</p>
         </details>
       </section>
 
@@ -104,13 +104,13 @@ export default function AutoDiagnostics() {
             <div className="modal-header">Book Auto Diagnostics</div>
             <form onSubmit={handleBookSubmit} className="book-form">
               <label htmlFor="address">Full Address</label>
-              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for auto diagnostics in The Woodlands TX" />
+              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for auto diagnostics" />
 
               <label htmlFor="zip">ZIP Code</label>
-              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required placeholder="e.g., 77381" aria-label="Enter ZIP for diagnostics near me in Montgomery County TX" />
+              <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required placeholder="e.g., 77381" aria-label="Enter ZIP for diagnostics near me" />
 
               <label htmlFor="year">Vehicle Year</label>
-              <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select year for check engine light diagnostic in Kingwood TX">
+              <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select year for check engine light diagnostic">
                 <option value="">Select Year</option>
                 {years.map((y) => <option key={y} value={y}>{y}</option>)}
               </select>
@@ -122,10 +122,10 @@ export default function AutoDiagnostics() {
               </select>
 
               <label htmlFor="model">Vehicle Model</label>
-              <input id="model" type="text" value={model} onChange={(e) => setModel(e.target.value)} required aria-label="Enter model for mobile diagnostics in The Woodlands TX" />
+              <input id="model" type="text" value={model} onChange={(e) => setModel(e.target.value)} required aria-label="Enter model for mobile diagnostics" />
 
               <label htmlFor="vin">VIN (Optional)</label>
-              <input id="vin" type="text" value={vin} onChange={(e) => setVin(e.target.value)} aria-label="Enter VIN for diagnostics quote in Montgomery County TX" />
+              <input id="vin" type="text" value={vin} onChange={(e) => setVin(e.target.value)} aria-label="Enter VIN for diagnostics quote" />
 
               {errorMessage && <p className="error-message">{errorMessage} <a href="tel:9365294748">Call Now</a></p>}
 
@@ -178,7 +178,7 @@ export default function AutoDiagnostics() {
             },
             "geoRadius": "50000"
           },
-          "description": "Mobile auto diagnostics services near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
+          "description": "Mobile auto diagnostics services near me in The Woodlands, Kingwood, and Montgomery County TX with fair pricing."
         })}
       </Script>
     </main>
