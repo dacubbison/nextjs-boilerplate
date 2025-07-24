@@ -28,7 +28,7 @@ export default function BrakeInspection() {
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/brake-inspection-80?a1=${encodeURIComponent(year)}&a2=${encodeURIComponent(`${make} ${model}`)}&a3=${encodeURIComponent(`${address}, ${cleanedZip}`)}&a4=${encodeURIComponent(vin ? `VIN: ${vin}` : 'Brake Inspection requested')}`;
+    const calendlyUrl = `https://calendly.com/david-toptechmobile/brake-inspection-80?a1=${encodeURIComponent(year)}&a2=${encodeURIComponent(`${make} ${model}`)}&a3=${encodeURIComponent(`${address}, ${cleanedZip}`)}&a4=${encodeURIComponent(vin ? vin : 'No VIN provided')}`;
     window.open(calendlyUrl, '_blank');
     toggleBookModal();
   };
@@ -47,12 +47,12 @@ export default function BrakeInspection() {
         <p className="text-lg mb-4">Safety-focused brake checks and repairs on-site in Montgomery County TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
-          src="/images/ai-brake-inspection.jpg" 
+          src="/images/brake-service.jpg" 
           alt="ASE-certified mechanic inspecting brakes near me in The Woodlands TX" 
           width={400} 
           height={200} 
           loading="lazy" 
-          className="rounded mx-auto max-w-full" // Ensures responsiveness
+          className="rounded mx-auto max-w-full"
         />
       </section>
 
@@ -68,12 +68,6 @@ export default function BrakeInspection() {
         <p className="font-bold">Pricing: Starts at $80. Benefits: Ensure safety—10% off for new customers!</p>
       </section>
 
-      {/* Testimonials Section - Social Proof */}
-      <section className="testimonials mb-8">
-        <h2 className="text-2xl font-bold mb-4 text-center">What Our Customers Say</h2>
-        <p className="text-center mt-4">5-star rated on Google. <a href="https://www.google.com/search?q=top+tech+mobile+mechanic+the+woodlands+tx" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">See our reviews!</a></p>
-      </section>
-
       {/* FAQs Section - Upgraded to Accordions */}
       <section className="faqs mb-8">
         <h2 className="text-2xl font-bold mb-4">FAQs About Brake Inspections in The Woodlands TX</h2>
@@ -84,10 +78,6 @@ export default function BrakeInspection() {
         <details className="mb-2 bg-white p-4 rounded shadow">
           <summary className="font-bold cursor-pointer">What is the inspection cost?</summary>
           <p>$80 with clear repair quotes in Montgomery County TX.</p>
-        </details>
-        <details className="mb-2 bg-white p-4 rounded shadow">
-          <summary className="font-bold cursor-pointer">How often should I inspect brakes in Texas heat?</summary>
-          <p>More frequently due to wear—every 6 months recommended for safety.</p>
         </details>
       </section>
 
@@ -184,7 +174,7 @@ export default function BrakeInspection() {
             "geoMidpoint": {
               "@type": "GeoCoordinates",
               "latitude": 30.1658,
-              "longitude": -95.4613"
+              "longitude": -95.4613
             },
             "geoRadius": "50000"
           },
