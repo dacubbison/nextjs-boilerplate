@@ -8,6 +8,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #333; }
 
+/* Preload for faster load (SEO boost) */
+
+
 /* Hero Section (optimized with background image and better mobile fit) */
 .hero-section {
   position: relative;

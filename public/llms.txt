@@ -1,1 +1,3 @@
-Allow: /
+gpt-3.5-turbo: allowed
+gpt-4: allowed
+claude-2: allowed

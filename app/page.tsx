@@ -22,7 +22,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
-      {/* Real Testimonials Section (All 5-Star) */}
+      {/* Real Testimonials Section (All 5-Star) (Good for trust) */}
       <section className="testimonials-section py-10 text-center bg-gray-100">
         <h2 className="text-2xl font-bold mb-6">What Customers Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -66,10 +66,10 @@ export default function Home() {
           "telephone": "936-529-4748",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Example St", // Replace with your real address
-            "addressLocality": "The Woodlands",
+            "streetAddress": "15392 Rusty Oak Trl Ste 200",
+            "addressLocality": "Conroe",
             "addressRegion": "TX",
-            "postalCode": "77381",
+            "postalCode": "77302",
             "addressCountry": "US"
           },
           "serviceArea": { 
