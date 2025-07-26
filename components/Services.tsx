@@ -32,7 +32,7 @@ export default function Services() {
     setSymptoms('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const cleanedZip = zip.trim().replace(/-/g, '');
     if (!safeZips.includes(cleanedZip)) {
@@ -43,9 +43,6 @@ export default function Services() {
     alert("We'll review your shop quote and call you back soon!");
     setIsModalOpen(false);
   };
-
-  const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString());
-  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   return (
     <section className="services-section">

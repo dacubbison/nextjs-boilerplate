@@ -1,13 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import Select from 'react-select';
 
 export default function Hero() {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [address, setAddress] = useState(null);
+  const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
   const [year, setYear] = useState(null);
   const [make, setMake] = useState(null);
@@ -21,7 +20,7 @@ export default function Hero() {
 
   const safeZips = ['77382', '77381', '77380', '77384', '77389', '77354', '77355', '77385', '77316', '77356', '77301', '77302', '77303', '77304', '77306', '77318', '77327', '77328', '77333', '77339', '77353', '77357', '77358', '77362', '77365', '77372', '77378', '77387', '77393', '77447', '77873'];
 
-  const handleQuoteSubmit = (e) => {
+  const handleQuoteSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const cleanedZip = zip.trim().replace(/-/g, '');
     if (!safeZips.includes(cleanedZip)) {
@@ -69,16 +68,14 @@ export default function Hero() {
             <div className="modal-header">Send Shop Quote</div>
             <form onSubmit={handleQuoteSubmit} className="book-form">
               <label htmlFor="address">Full Address</label>
-              <GooglePlacesAutocomplete
-                apiKey="YOUR_GOOGLE_API_KEY" // Replace with your actual key if you reconsider using it
-                selectProps={{
-                  value: address,
-                  onChange: setAddress,
-                  placeholder: 'Start typing address...',
-                }}
-                autocompletionRequest={{
-                  componentRestrictions: { country: 'us' },
-                }}
+              <input
+                id="address"
+                type="text"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Enter your address"
+                required
+                aria-label="Enter full address for auto service in The Woodlands"
               />
 
               <label htmlFor="zip">ZIP Code</label>
