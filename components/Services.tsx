@@ -8,8 +8,8 @@ export default function Services() {
   const [currentService, setCurrentService] = useState('');
   const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
-  const [year, setYear] = useState('');
-  const [make, setMake] = useState('');
+  const [year, setYear] = useState<string | null>(null); // Changed to string | null
+  const [make, setMake] = useState<string | null>(null); // Changed to string | null
   const [model, setModel] = useState('');
   const [vin, setVin] = useState('');
   const [licensePlate, setLicensePlate] = useState('');
@@ -18,14 +18,14 @@ export default function Services() {
 
   const safeZips = ['77382', '77381', '77380', '77384', '77389', '77354', '77355', '77385', '77316', '77356', '77301', '77302', '77303', '77304', '77306', '77318', '77327', '77328', '77333', '77339', '77353', '77357', '77358', '77362', '77365', '77372', '77378', '77387', '77393', '77447', '77873'];
 
-  const openModal = (service) => {
+  const openModal = (service: string) => {
     setCurrentService(service);
     setIsModalOpen(true);
     setErrorMessage('');
     setAddress('');
     setZip('');
-    setYear('');
-    setMake('');
+    setYear(null);
+    setMake(null);
     setModel('');
     setVin('');
     setLicensePlate('');
@@ -43,6 +43,9 @@ export default function Services() {
     alert("We'll review your shop quote and call you back soon!");
     setIsModalOpen(false);
   };
+
+  const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString());
+  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
 
   return (
     <section className="services-section">
@@ -287,13 +290,13 @@ export default function Services() {
               <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Enter ZIP code for on-site repair in Montgomery County" placeholder="e.g., 77381" />
 
               <label htmlFor="year">Vehicle Year</label>
-              <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select vehicle year for ASE-certified service">
+              <select id="year" value={year ?? ''} onChange={(e) => setYear(e.target.value)} required aria-label="Select vehicle year for ASE-certified service">
                 <option value="">Select Year</option>
                 {years.map((y) => <option key={y} value={y}>{y}</option>)}
               </select>
 
               <label htmlFor="make">Vehicle Make</label>
-              <select id="make" value={make} onChange={(e) => setMake(e.target.value)} required aria-label="Select vehicle make for mobile auto repair">
+              <select id="make" value={make ?? ''} onChange={(e) => setMake(e.target.value)} required aria-label="Select vehicle make for mobile auto repair">
                 <option value="">Select Make</option>
                 {makes.map((m) => <option key={m} value={m}>{m}</option>)}
               </select>
