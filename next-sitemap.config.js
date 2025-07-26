@@ -19,7 +19,7 @@ module.exports = {
     };
     return {
       loc: path,
-      lastmod: new Date().toISOString(), // Use file mod time or custom logic later
+      lastmod: new Date().toISOString(), // Use build time for now; update with fs later if needed
       changefreq: changefreqs[path.split('/')[1]] || 'weekly',
       priority: priorities[path.split('/')[1]] || 0.7,
     };
