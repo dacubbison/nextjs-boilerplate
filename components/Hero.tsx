@@ -1,15 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import Select from 'react-select';
+import Select, { SingleValue } from 'react-select';
 
 export default function Hero() {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
-  const [year, setYear] = useState(null);
-  const [make, setMake] = useState(null);
+  const [year, setYear] = useState<SingleValue<{ value: string; label: string }>>(null); // Updated type
+  const [make, setMake] = useState<SingleValue<{ value: string; label: string }>>(null); // Updated type
   const [model, setModel] = useState('');
   const [vin, setVin] = useState('');
   const [licensePlate, setLicensePlate] = useState('');
@@ -82,10 +82,10 @@ export default function Hero() {
               <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Enter ZIP code for on-site repair in Montgomery County" placeholder="e.g., 77381" />
 
               <label htmlFor="year">Vehicle Year</label>
-              <Select options={years} value={year} onChange={setYear} placeholder="Select Year" isSearchable />
+              <Select options={years} value={year} onChange={(newValue) => setYear(newValue)} placeholder="Select Year" isSearchable />
 
               <label htmlFor="make">Vehicle Make</label>
-              <Select options={makes} value={make} onChange={setMake} placeholder="Select Make" isSearchable />
+              <Select options={makes} value={make} onChange={(newValue) => setMake(newValue)} placeholder="Select Make" isSearchable />
 
               <label htmlFor="model">Vehicle Model</label>
               <input id="model" type="text" value={model} onChange={(e) => setModel(e.target.value)} required aria-label="Enter vehicle model for diagnostics" />
