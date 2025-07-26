@@ -1,13 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-User-agent: GPTBot
-Allow: /
+# Host
+Host: https://toptechmobile.com
 
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
+# Sitemaps
 Sitemap: https://toptechmobile.com/sitemap.xml

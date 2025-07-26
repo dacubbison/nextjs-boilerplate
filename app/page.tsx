@@ -1,5 +1,6 @@
 import Script from 'next/script';
 import Hero from '../components/Hero';
+import About from '../components/About'; // New import
 import Services from '../components/Services';
 import QuoteForm from '../components/QuoteForm';
 import Footer from '../components/Footer';
@@ -14,16 +15,44 @@ export default function Home() {
   const currentDate = new Date();
   const promoEndDate = new Date('2025-08-20');
   const isPromoActive = currentDate <= promoEndDate;
-  const formattedDate = format(currentDate, 'MMMM d, yyyy, h:mm a'); // 09:37 PM CDT, Friday, July 25, 2025
+  const formattedDate = format(currentDate, 'MMMM d, yyyy, h:mm a'); // e.g., July 26, 2025, 12:00 PM
 
   return (
     <main>
       <Hero />
+      <About />
       <Services />
+      {/* Real Testimonials Section (All 5-Star) */}
+      <section className="testimonials-section py-10 text-center bg-gray-100">
+        <h2 className="text-2xl font-bold mb-6">What Customers Say</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="flex justify-center mb-2">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p className="italic">"I highly recommend Top Tech Mobile! They showed up on time, finished my brakes on the same day. No mess left behind!!! Job well done Top Tech!"</p>
+            <p className="mt-2 font-semibold">- Mandie Vaughn, 1 day ago</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="flex justify-center mb-2">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p className="italic">(No detailed review provided)</p>
+            <p className="mt-2 font-semibold">- B TheReal, 1 day ago</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <div className="flex justify-center mb-2">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <p className="italic">(No detailed review provided)</p>
+            <p className="mt-2 font-semibold">- Joseph Quinn, 4 days ago</p>
+          </div>
+        </div>
+      </section>
       <QuoteForm />
       <Footer />
       {isPromoActive && (
-        <p className="promo-text">New Customer Special: 10% off your first service! Valid until August 20, 2025. (As of {formattedDate})</p>
+        <p className="promo-text">New Customer Special: 10% off your first service! Valid until August 20, 2025. (As of {formattedDate}) Beat any shop quote by up to 50%!</p>
       )}
       <Script
         type="application/ld+json"
@@ -60,17 +89,56 @@ export default function Home() {
             "https://twitter.com/toptechmobile", // Replace with real links or remove
             "https://facebook.com/toptechmobile"
           ],
-          // Temporarily removed offers to isolate error
-          // "offers": [
-          //   {
-          //     "@type": "Offer",
-          //     "name": "Mobile Auto Diagnostics",
-          //     "description": "Advanced diagnostic tools for vehicles in The Woodlands TX",
-          //     "priceCurrency": "USD",
-          //     "price": "100",
-          //     "availability": "https://schema.org/InStock"
-          //   }
-          // ]
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://toptechmobile.com"
+            }]
+          },
+          "review": [ // All 5-star reviews
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "author": { "@type": "Person", "name": "Mandie Vaughn" },
+              "reviewBody": "I highly recommend Top Tech Mobile! They showed up on time, finished my brakes on the same day. No mess left behind!!! Job well done Top Tech!",
+              "datePublished": "2025-07-25"
+            },
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "author": { "@type": "Person", "name": "B TheReal" },
+              "reviewBody": "(No detailed review provided)",
+              "datePublished": "2025-07-25"
+            },
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "author": { "@type": "Person", "name": "Joseph Quinn" },
+              "reviewBody": "(No detailed review provided)",
+              "datePublished": "2025-07-22"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5", // All 5-star
+            "reviewCount": "3" // Total reviews
+          },
+          "potentialAction": {
+            "@type": "ReserveAction",
+            "target": "https://calendly.com/your-username/your-event",
+            "result": { "@type": "Reservation", "name": "Book Mobile Mechanic Service" }
+          },
+          "faqPage": {
+            "@type": "FAQPage",
+            "mainEntity": [{
+              "@type": "Question",
+              "name": "What areas do you serve as a mobile mechanic?",
+              "acceptedAnswer": { "@type": "Answer", "text": "I serve The Woodlands, Kingwood, and Montgomery County TX." }
+            }]
+          }
         })}
       </Script>
     </main>

@@ -8,8 +8,8 @@ export default function Hero() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [address, setAddress] = useState('');
   const [zip, setZip] = useState('');
-  const [year, setYear] = useState<SingleValue<{ value: string; label: string }>>(null); // Updated type
-  const [make, setMake] = useState<SingleValue<{ value: string; label: string }>>(null); // Updated type
+  const [year, setYear] = useState<SingleValue<{ value: string; label: string }>>(null);
+  const [make, setMake] = useState<SingleValue<{ value: string; label: string }>>(null);
   const [model, setModel] = useState('');
   const [vin, setVin] = useState('');
   const [licensePlate, setLicensePlate] = useState('');
@@ -28,8 +28,12 @@ export default function Hero() {
       return;
     }
     setErrorMessage('');
-    alert("We'll review your shop quote and call you back soon!");
+    alert("I'll review your shop quote and call you back soon!");
     toggleQuoteModal();
+    // GA event example
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'submit_quote', { 'event_category': 'engagement' });
+    }
   };
 
   const years = Array.from({ length: 46 }, (_, i) => ({ value: (2025 - i).toString(), label: (2025 - i).toString() }));
@@ -39,9 +43,9 @@ export default function Hero() {
     <div className="hero-section">
       <div className="hero-text">
         <h1>Top Tech Mobile Mechanic: ASE-Certified</h1>
-        <p>Your trusted on-site auto service in The Woodlands, Montgomery County, and Kingwood areas.</p>
-        <p>Fair pricing—share your shop quote, and we'll often beat it by up to 50%!</p>
-        <p>Call or Text for a Free Quote: 936-529-4748</p>
+        <p>I'm your trusted on-site auto service in The Woodlands, Montgomery County, and Kingwood areas.</p>
+        <p>Fair pricing—share your shop quote, and I'll often beat it by up to 50%!</p>
+        <p>Call or Text me for a Free Quote: 936-529-4748</p>
         <p className="text-green-500 font-bold">New Customer Special: 10% off your first service! (Valid through 8/20/2025)</p>
       </div>
       <div className="hero-buttons">
@@ -52,7 +56,7 @@ export default function Hero() {
       {isCallModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
           <div className="book-modal-content">
-            <div className="modal-header">Contact Us</div>
+            <div className="modal-header">Contact Me</div>
             <div className="book-form">
               <button onClick={() => window.location.href = 'tel:9365294748'} className="modal-btn call-btn">Call 936-529-4748</button>
               <button onClick={() => window.location.href = 'sms:9365294748'} className="modal-btn text-btn">Text 936-529-4748</button>

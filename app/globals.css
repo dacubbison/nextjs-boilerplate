@@ -42,28 +42,30 @@ body { font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #333; }
   z-index: 1; 
 }
 
-/* Services Section */
+/* Services Section - More text-heavy */
 .services-section {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 .services-section h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
-.service-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-.service-item {
-  background: white;
-  padding: 20px;
+.service-group { margin-bottom: 40px; }
+.service-group h3 { text-align: center; font-size: 1.8rem; margin-bottom: 20px; color: #001F3F; }
+.service-list { list-style: disc; padding-left: 20px; }
+.service-list li { margin-bottom: 10px; font-size: 1.1rem; }
+
+/* About Section - Personal touch */
+.about-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.service-item h3 { font-size: 1.5rem; margin-bottom: 10px; color: #001F3F; }
-.service-item ul { list-style: disc; padding-left: 20px; }
-.service-item li { margin-bottom: 5px; }
-.service-item img { width: 100%; height: auto; margin-bottom: 10px; border-radius: 4px; }
+.about-section h2 { text-align: center; font-size: 2rem; margin-bottom: 20px; }
+.about-section p { margin-bottom: 15px; font-size: 1.1rem; line-height: 1.6; }
+.about-photo { width: 200px; height: auto; border-radius: 50%; margin: 0 auto 20px; display: block; }
 
 /* CTA accents */
 a, button { color: #28A745; text-decoration: none; font-weight: bold; }
@@ -71,7 +73,6 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 /* Media query for mobile */
 @media (max-width: 768px) {
   .hero-section { min-height: 300px; padding: 60px 10px; } /* Further reduced for better fit */
-  .service-card { grid-template-columns: 1fr; }
 }
 
 /* Hero Buttons */
@@ -481,4 +482,21 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   height: 150px;
   border: 1px solid #ddd;
   background: white;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background: #f8f9fa;
+  padding: 40px 20px;
+}
+.testimonials-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #001F3F;
+}
+.testimonials-section .grid > div {
+  text-align: center;
+}
+.testimonials-section .flex {
+  color: #FFD700; /* Gold for stars */
 }
