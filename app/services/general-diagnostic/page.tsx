@@ -1,13 +1,10 @@
 // Updated GeneralDiagnostic page.tsx
-'use client';
-
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function GeneralDiagnostic() {
-  // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -15,7 +12,7 @@ export default function GeneralDiagnostic() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">General Vehicle Diagnostic Near Me in Montgomery County TX</h1>
-        <p className="text-lg mb-4">Full system scans to identify performance issues in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Full system scans to identify performance issues in The Woodlands TX with fair and upfront pricing - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/fuel-pump-repair.jpg" 
@@ -30,13 +27,13 @@ export default function GeneralDiagnostic() {
       {/* Details Section - What We Check + Benefits */}
       <section className="service-details mb-8">
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our General Diagnostic Services</h2>
-        <p className="mb-4">Complete vehicle health checks using advanced tools and techniques in Kingwood TX. We come to you for quick results.</p>
+        <p className="mb-4">Complete vehicle health checks using advanced tools for accurate diagnosis in Kingwood TX. We come to you for quick results.</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Full system scanning</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Performance issue identification</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Detailed diagnostic reports near me in Montgomery County TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Full system scan in The Woodlands TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Identify performance issues</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Accurate results near me in Kingwood TX</li>
         </ul>
-        <p className="font-bold">Pricing: Starts at $100. Benefits: Pinpoint problems fast to save on repairs—10% off for new customers!</p>
+        <p className="font-bold">Pricing: Starts at $100. Benefits: Pinpoint problems fast - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -83,13 +80,17 @@ export default function GeneralDiagnostic() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$  ",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [
-"
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "General Diagnostic"
                   },
-                  "price": "80",
+                  "price": "100",
                   "priceCurrency": "USD"
                 }
               ]
@@ -104,7 +105,7 @@ export default function GeneralDiagnostic() {
             },
             "geoRadius": "50000"
           },
-          "description": "Mobile battery and electrical services near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
+          "description": "Mobile general vehicle diagnostic services near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
         })}
       </Script>
     </main>

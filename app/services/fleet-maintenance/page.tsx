@@ -1,13 +1,10 @@
 // Updated FleetMaintenance page.tsx
-'use client';
-
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function FleetMaintenance() {
-  // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -15,7 +12,7 @@ export default function FleetMaintenance() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Fleet Maintenance Services Near Me in The Woodlands TX</h1>
-        <p className="text-lg mb-4">Custom maintenance plans for business fleets in Montgomery County TX with fair and upfront pricing to keep your operations running smoothly—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Custom maintenance plans for business fleets in Montgomery County TX with fair and upfront pricing to keep your operations running smoothly - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/fleet-repair-montgomerytx.jpg" 
@@ -36,7 +33,7 @@ export default function FleetMaintenance() {
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Regular inspections and on-site repairs</li>
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Minimize operational disruptions near me in Montgomery County TX</li>
         </ul>
-        <p className="font-bold">Pricing: Customized plans starting at $150. Benefits: Reduce downtime—10% off for new customers!</p>
+        <p className="font-bold">Pricing: Customized plans starting at $150. Benefits: Reduce downtime - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -83,7 +80,7 @@ export default function FleetMaintenance() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "  $$",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [

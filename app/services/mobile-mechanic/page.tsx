@@ -1,13 +1,10 @@
 // Updated MobileMechanic page.tsx
-'use client';
-
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function MobileMechanic() {
-  // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -15,7 +12,7 @@ export default function MobileMechanic() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Mobile Mechanic Services in The Woodlands TX</h1>
-        <p className="text-lg mb-4">On-site auto repairs and maintenance in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">On-site auto repairs and maintenance in The Woodlands TX with fair and upfront pricing - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/mobile-mechanic-woodlands.jpg" 
@@ -38,7 +35,7 @@ export default function MobileMechanic() {
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Suspension and steering</li>
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Engine and transmission work in Montgomery County TX</li>
         </ul>
-        <p className="font-bold">Pricing: Varies by service—contact for quote. Benefits: No towing, fast service, 10% off for new customers!</p>
+        <p className="font-bold">Pricing: Varies by service—contact for quote. Benefits: No towing, fast service - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -89,7 +86,7 @@ export default function MobileMechanic() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "  $$",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [
@@ -97,13 +94,8 @@ export default function MobileMechanic() {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "On-Site Auto "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "General Diagnostic"
-                  },
-                  "price": "100",
-                  "priceCurrency": "USD"
+                    "name": "On-Site Auto Repairs"
+                  }
                 }
               ]
             }
@@ -117,7 +109,7 @@ export default function MobileMechanic() {
             },
             "geoRadius": "50000"
           },
-          "description": "Mobile general vehicle diagnostic services near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
+          "description": "On-site auto repairs, tune-ups, brake service, suspension, and engine work near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
         })}
       </Script>
     </main>

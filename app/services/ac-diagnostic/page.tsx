@@ -1,13 +1,10 @@
 // Updated ACDiagnostic page.tsx
-'use client';
-
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function ACDiagnostic() {
-  // Countdown for urgency (ends 8/20/2025) - dynamic based on current date
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -15,10 +12,10 @@ export default function ACDiagnostic() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">AC Diagnostic and Repair in The Woodlands Kingwood and Montgomery County TX</h1>
-        <p className="text-lg mb-4">Mobile AC inspections leak detection and recharges with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Mobile AC inspections leak detection and recharges with fair and upfront pricing - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
-          src="/images/ac-recharge.jpg"  // Replace with 'https://images.unsplash.com/photo-1567098274474-9b92f1e1174e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80' for a professional mechanic fixing AC-like system (free from Unsplash)
+          src="/images/ac-recharge.jpg"
           alt="ASE-certified mechanic diagnosing car AC near me"
           width={400} 
           height={200} 
@@ -36,7 +33,7 @@ export default function ACDiagnostic() {
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Leak detection and recharge</li>
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Efficient cooling restorations near me</li>
         </ul>
-        <p className="font-bold">Pricing: Starts at $80. Benefits: Stay cool—10% off for new customers!</p>
+        <p className="font-bold">Pricing: Starts at $80. Benefits: Stay cool - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -83,7 +80,7 @@ export default function ACDiagnostic() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$  ",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "name": "AC Services",

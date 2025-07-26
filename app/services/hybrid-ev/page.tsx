@@ -1,4 +1,9 @@
 // Updated HybridEV page.tsx
+import Image from 'next/image';
+import Script from 'next/script';
+import Link from 'next/link';
+import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+
 export const metadata = {
   title: 'Hybrid and EV Repair Near Me in Montgomery County TX | Top Tech Mobile',
   description: 'Specialized mobile repair for hybrid and electric vehicles in The Woodlands and Kingwood TX, including battery diagnostics with fair and upfront pricing.',
@@ -6,7 +11,6 @@ export const metadata = {
 };
 
 export default function HybridEV() {
-  // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -14,7 +18,7 @@ export default function HybridEV() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Hybrid and EV Repair Near Me in Montgomery County TX</h1>
-        <p className="text-lg mb-4">Specialized mobile services for hybrids and EVs, including battery replacement and repairs in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Specialized mobile services for hybrids and EVs, including battery replacement and repairs in The Woodlands TX with fair and upfront pricing - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/hybrid-ev.jpg" 
@@ -31,11 +35,11 @@ export default function HybridEV() {
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our Hybrid and EV Services</h2>
         <p className="mb-4">Specialized care for electric and hybrid vehicles using the latest tools and techniques in Kingwood TX. We come to you for convenience.</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Battery diagnostics and replacement</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Specialized hybrid system repairs</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Eco-friendly maintenance solutions near me in Montgomery County TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Battery diagnostics and replacement in The Woodlands TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Specialized hybrid repairs</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Eco-friendly solutions near me in Montgomery County TX</li>
         </ul>
-        <p className="font-bold">Pricing: Varies by service—contact for quote. Benefits: Expert EV/hybrid care without the shop hassle, 10% off for new customers!</p>
+        <p className="font-bold">Pricing: Varies by service—contact for quote. Benefits: Expert EV/hybrid care - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -82,7 +86,7 @@ export default function HybridEV() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "  $$",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [

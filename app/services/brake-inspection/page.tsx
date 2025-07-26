@@ -1,13 +1,10 @@
 // Updated BrakeInspection page.tsx
-'use client';
-
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function BrakeInspection() {
-  // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -15,7 +12,7 @@ export default function BrakeInspection() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Mobile Brake Inspection Near Me in The Woodlands TX</h1>
-        <p className="text-lg mb-4">Safety-focused brake checks and repairs on-site in Montgomery County TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Safety-focused brake checks and repairs on-site in Montgomery County TX with fair and upfront pricing - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/brake-service.jpg" 
@@ -32,11 +29,11 @@ export default function BrakeInspection() {
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our Brake Inspection Services</h2>
         <p className="mb-4">Full system checks for pads, rotors, and fluids to ensure safe driving in Kingwood TX.</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Pad and rotor inspections</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Fluid and line checks</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> On-site brake repairs near me in Montgomery County TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Full brake system check in Kingwood TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Pad, rotor, and fluid inspection</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Safety-focused service near me</li>
         </ul>
-        <p className="font-bold">Pricing: Starts at $80. Benefits: Ensure safety—10% off for new customers!</p>
+        <p className="font-bold">Pricing: Starts at $80. Benefits: Ensure safety - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -87,7 +84,7 @@ export default function BrakeInspection() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "  $$",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [

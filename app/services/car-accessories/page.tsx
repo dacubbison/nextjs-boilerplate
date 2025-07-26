@@ -1,13 +1,10 @@
 // Updated CarAccessories page.tsx
-'use client';
-
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function CarAccessories() {
-  // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
@@ -15,7 +12,7 @@ export default function CarAccessories() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Car Accessories Installation Near Me in Montgomery County TX</h1>
-        <p className="text-lg mb-4">Expert mobile installation for dash cams, GPS systems, audio upgrades, and more in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Expert mobile installation for dash cams, GPS systems, audio upgrades, and more in The Woodlands TX with fair and upfront pricing - often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/car-install-montgomerytx.jpg" 
@@ -36,7 +33,7 @@ export default function CarAccessories() {
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Audio and entertainment upgrades in The Woodlands TX</li>
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Custom lighting and more near me in Kingwood TX</li>
         </ul>
-        <p className="font-bold">Pricing: Starts at $100. Benefits: Enhance your ride—10% off for new customers!</p>
+        <p className="font-bold">Pricing: Starts at $100. Benefits: Enhance your ride - 10% off for new customers!</p>
       </section>
 
       {/* FAQs Section - Upgraded to Accordions */}
@@ -83,7 +80,7 @@ export default function CarAccessories() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$  ",
+            "priceRange": "$$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
               "itemListElement": [
