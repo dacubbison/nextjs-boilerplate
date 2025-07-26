@@ -1,3 +1,6 @@
+// Updated CarAccessories page.tsx
+'use client';
+
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
@@ -5,7 +8,7 @@ import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function CarAccessories() {
   // Countdown for urgency (ends 8/20/2025)
-  const daysLeft = 30;
+  const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
     <main className="max-w-4xl mx-auto p-6">
@@ -16,11 +19,11 @@ export default function CarAccessories() {
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/car-install-montgomerytx.jpg" 
-          alt="ASE-certified mechanic installing car accessories near me in Montgomery County TX" 
+          alt="Car accessories installation near me in Montgomery County TX for dash cams, GPS, and audio upgrades in The Woodlands TX"
           width={400} 
           height={200} 
           loading="lazy" 
-          className="rounded mx-auto max-w-full" // Ensures responsiveness
+          className="rounded mx-auto max-w-full"
         />
       </section>
 
@@ -29,9 +32,9 @@ export default function CarAccessories() {
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our Car Accessories Services</h2>
         <p className="mb-4">Get custom installations at your location without the hassle of a shop visit. We ensure compatibility and quality work in Kingwood TX.</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Dash cams and GPS tracking systems</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Audio and entertainment system upgrades</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Custom lighting and interior enhancements near me in The Woodlands TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Dash cams and GPS systems</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Audio and entertainment upgrades in The Woodlands TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Custom lighting and more near me in Kingwood TX</li>
         </ul>
         <p className="font-bold">Pricing: Starts at $100. Benefits: Enhance your ride—10% off for new customers!</p>
       </section>
@@ -80,10 +83,9 @@ export default function CarAccessories() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$",
+            "priceRange": "$$  ",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Car Accessories Services",
               "itemListElement": [
                 {
                   "@type": "Offer",

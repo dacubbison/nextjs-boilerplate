@@ -1,8 +1,4 @@
-import Image from 'next/image';
-import Script from 'next/script';
-import Link from 'next/link';
-import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
-
+// Updated HybridEV page.tsx
 export const metadata = {
   title: 'Hybrid and EV Repair Near Me in Montgomery County TX | Top Tech Mobile',
   description: 'Specialized mobile repair for hybrid and electric vehicles in The Woodlands and Kingwood TX, including battery diagnostics with fair and upfront pricing.',
@@ -18,15 +14,15 @@ export default function HybridEV() {
       {/* Hero Section - Visual + Value Prop */}
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">Hybrid and EV Repair Near Me in Montgomery County TX</h1>
-        <p className="text-lg mb-4">Expert mobile services for hybrids and EVs, including battery replacement and repairs in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
+        <p className="text-lg mb-4">Specialized mobile services for hybrids and EVs, including battery replacement and repairs in The Woodlands TX with fair and upfront pricing—often beat shop quotes by 50%!</p>
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/hybrid-ev.jpg" 
-          alt="Mechanic repairing hybrid EV near me in Montgomery County TX" 
-          width={800} 
-          height={400} 
+          alt="Hybrid and EV repair near me in Montgomery County TX with battery diagnostics and specialized repairs in The Woodlands TX"
+          width={400} 
+          height={200} 
           loading="lazy" 
-          className="rounded mx-auto"
+          className="rounded mx-auto max-w-full"
         />
       </section>
 
@@ -65,7 +61,7 @@ export default function HybridEV() {
         </ul>
       </section>
 
-      {/* CTAs - Only Call Now */}
+      {/* CTAs */}
       <div className="cta-buttons text-center mb-8">
         <a href="tel:9365294748" className="call-now-btn">Call Now: 936-529-4748</a>
       </div>
@@ -86,10 +82,9 @@ export default function HybridEV() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$",
+            "priceRange": "  $$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Hybrid EV Services",
               "itemListElement": [
                 {
                   "@type": "Offer",

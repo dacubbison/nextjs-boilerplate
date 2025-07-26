@@ -1,41 +1,12 @@
+// Updated MobileMechanic page.tsx
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function MobileMechanic() {
-  const [isBookModalOpen, setIsBookModalOpen] = useState(false);
-  const [address, setAddress] = useState('');
-  const [zip, setZip] = useState('');
-  const [year, setYear] = useState('');
-  const [make, setMake] = useState('');
-  const [model, setModel] = useState('');
-  const [vin, setVin] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const toggleBookModal = () => setIsBookModalOpen(!isBookModalOpen);
-
-  const safeZips = ['77301', '77302', '77303', '77304', '77305', '77306', '77316', '77318', '77327', '77328', '77353', '77354', '77355', '77356', '77357', '77362', '77365', '77372', '77373', '77378', '77380', '77381', '77382', '77384', '77385', '77386', '77388', '77389', '77393'];
-
-  const handleBookSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const cleanedZip = zip.trim().replace(/-/g, '');
-    if (!safeZips.includes(cleanedZip)) {
-      setErrorMessage('You may be outside our service area. Please call us at 936-529-4748 for assistance.');
-      return;
-    }
-    setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(cleanedZip)}&a2=${encodeURIComponent(address)}&a3=${encodeURIComponent(year)}&a4=${encodeURIComponent(make)}&a5=${encodeURIComponent(model)}&a6=${encodeURIComponent(vin)}`;
-    window.open(calendlyUrl, '_blank');
-    toggleBookModal();
-  };
-
-  const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString());
-  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
-
   // Countdown for urgency (ends 8/20/2025)
   const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
@@ -48,11 +19,11 @@ export default function MobileMechanic() {
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/mobile-mechanic-woodlands.jpg" 
-          alt="Mobile mechanic performing on-site auto repair near me in The Woodlands TX" 
-          width={800} 
-          height={400} 
+          alt="Mobile mechanic near me in The Woodlands TX for on-site auto repair, tune-ups, and brake service in Kingwood TX"
+          width={400} 
+          height={200} 
           loading="lazy" 
-          className="rounded mx-auto"
+          className="rounded mx-auto max-w-full"
         />
       </section>
 
@@ -61,11 +32,11 @@ export default function MobileMechanic() {
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Our Mobile Mechanic Services</h2>
         <p className="mb-4">Expert repairs brought to your location for convenience and savings in Kingwood TX. We handle everything on-site.</p>
         <ul className="list-disc pl-5 mb-4 space-y-2">
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> On-site repairs at your home or office</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Tune-ups and preventive maintenance</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> On-site repairs at your home or office in Kingwood TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Tune-ups and maintenance</li>
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Brake service and repair</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Suspension and steering adjustments</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Engine and transmission work near me in Montgomery County TX</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Suspension and steering</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Engine and transmission work in Montgomery County TX</li>
         </ul>
         <p className="font-bold">Pricing: Varies by service—contact for quote. Benefits: No towing, fast service, 10% off for new customers!</p>
       </section>
@@ -97,7 +68,7 @@ export default function MobileMechanic() {
         </ul>
       </section>
 
-      {/* CTAs - Removed Book Now */}
+      {/* CTAs */}
       <div className="cta-buttons text-center mb-8">
         <a href="tel:9365294748" className="call-now-btn">Call Now: 936-529-4748</a>
       </div>
@@ -118,17 +89,21 @@ export default function MobileMechanic() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$",
+            "priceRange": "  $$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Mobile Mechanic Services",
               "itemListElement": [
                 {
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
-                    "name": "On-Site Auto Repairs"
-                  }
+                    "name": "On-Site Auto "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "General Diagnostic"
+                  },
+                  "price": "100",
+                  "priceCurrency": "USD"
                 }
               ]
             }
@@ -142,7 +117,7 @@ export default function MobileMechanic() {
             },
             "geoRadius": "50000"
           },
-          "description": "On-site auto repairs, tune-ups, brake service, suspension, and engine work near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
+          "description": "Mobile general vehicle diagnostic services near me in The Woodlands TX, Kingwood TX, and Montgomery County TX with fair pricing."
         })}
       </Script>
     </main>

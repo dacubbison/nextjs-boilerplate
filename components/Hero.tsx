@@ -1,38 +1,40 @@
 'use client';
 
 import { useState } from 'react';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import Select from 'react-select';
 
 export default function Hero() {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
-  const [isBookModalOpen, setIsBookModalOpen] = useState(false);
-  const [address, setAddress] = useState('');
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [address, setAddress] = useState(null);
   const [zip, setZip] = useState('');
-  const [year, setYear] = useState('');
-  const [make, setMake] = useState('');
+  const [year, setYear] = useState(null);
+  const [make, setMake] = useState(null);
   const [model, setModel] = useState('');
   const [vin, setVin] = useState('');
+  const [licensePlate, setLicensePlate] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const toggleCallModal = () => setIsCallModalOpen(!isCallModalOpen);
-  const toggleBookModal = () => setIsBookModalOpen(!isBookModalOpen);
+  const toggleQuoteModal = () => setIsQuoteModalOpen(!isQuoteModalOpen);
 
   const safeZips = ['77382', '77381', '77380', '77384', '77389', '77354', '77355', '77385', '77316', '77356', '77301', '77302', '77303', '77304', '77306', '77318', '77327', '77328', '77333', '77339', '77353', '77357', '77358', '77362', '77365', '77372', '77378', '77387', '77393', '77447', '77873'];
 
-  const handleBookSubmit = (e: React.FormEvent) => {
+  const handleQuoteSubmit = (e) => {
     e.preventDefault();
-    const cleanedZip = zip.trim().replace(/-/g, ''); // Normalize input
+    const cleanedZip = zip.trim().replace(/-/g, '');
     if (!safeZips.includes(cleanedZip)) {
       setErrorMessage('You may be outside our service area. Please call us at 936-529-4748 for assistance.');
       return;
     }
     setErrorMessage('');
-    const calendlyUrl = `https://calendly.com/david-toptechmobile/general-vehicle-diagnostic-100?a1=${encodeURIComponent(year)}&a2=${encodeURIComponent(make + ' ' + model)}&a3=${encodeURIComponent(address + ', ' + zip)}&a4=${encodeURIComponent(vin || 'N/A')}`;
-    window.open(calendlyUrl, '_blank');
-    toggleBookModal();
+    alert("We'll review your shop quote and call you back soon!");
+    toggleQuoteModal();
   };
 
-  const years = Array.from({ length: 46 }, (_, i) => (2025 - i).toString()); // 1980-2025
-  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
+  const years = Array.from({ length: 46 }, (_, i) => ({ value: (2025 - i).toString(), label: (2025 - i).toString() }));
+  const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'].map(m => ({ value: m, label: m }));
 
   return (
     <div className="hero-section">
@@ -45,7 +47,7 @@ export default function Hero() {
       </div>
       <div className="hero-buttons">
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic in The Woodlands">Call Now</button>
-        <button onClick={toggleBookModal} className="book-now-btn" aria-label="Open booking modal for auto service in Montgomery County">Book Now</button>
+        <button onClick={toggleQuoteModal} className="book-now-btn" aria-label="Send shop quote for auto service in Montgomery County">Send Shop Quote</button>
       </div>
 
       {isCallModalOpen && (
@@ -61,28 +63,32 @@ export default function Hero() {
         </div>
       )}
 
-      {isBookModalOpen && (
+      {isQuoteModalOpen && (
         <div className="modal-overlay" aria-modal="true" role="dialog">
           <div className="book-modal-content">
-            <div className="modal-header">Book Appointment</div>
-            <form onSubmit={handleBookSubmit} className="book-form">
+            <div className="modal-header">Send Shop Quote</div>
+            <form onSubmit={handleQuoteSubmit} className="book-form">
               <label htmlFor="address">Full Address</label>
-              <input id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required aria-label="Enter full address for auto service in The Woodlands" />
+              <GooglePlacesAutocomplete
+                apiKey="YOUR_GOOGLE_API_KEY" // Replace with your actual key if you reconsider using it
+                selectProps={{
+                  value: address,
+                  onChange: setAddress,
+                  placeholder: 'Start typing address...',
+                }}
+                autocompletionRequest={{
+                  componentRestrictions: { country: 'us' },
+                }}
+              />
 
               <label htmlFor="zip">ZIP Code</label>
               <input id="zip" type="text" value={zip} onChange={(e) => setZip(e.target.value)} required aria-label="Enter ZIP code for on-site repair in Montgomery County" placeholder="e.g., 77381" />
 
               <label htmlFor="year">Vehicle Year</label>
-              <select id="year" value={year} onChange={(e) => setYear(e.target.value)} required aria-label="Select vehicle year for ASE-certified service">
-                <option value="">Select Year</option>
-                {years.map((y) => <option key={y} value={y}>{y}</option>)}
-              </select>
+              <Select options={years} value={year} onChange={setYear} placeholder="Select Year" isSearchable />
 
               <label htmlFor="make">Vehicle Make</label>
-              <select id="make" value={make} onChange={(e) => setMake(e.target.value)} required aria-label="Select vehicle make for mobile auto repair">
-                <option value="">Select Make</option>
-                {makes.map((m) => <option key={m} value={m}>{m}</option>)}
-              </select>
+              <Select options={makes} value={make} onChange={setMake} placeholder="Select Make" isSearchable />
 
               <label htmlFor="model">Vehicle Model</label>
               <input id="model" type="text" value={model} onChange={(e) => setModel(e.target.value)} required aria-label="Enter vehicle model for diagnostics" />
@@ -90,10 +96,13 @@ export default function Hero() {
               <label htmlFor="vin">VIN (Optional)</label>
               <input id="vin" type="text" value={vin} onChange={(e) => setVin(e.target.value)} aria-label="Enter VIN for quote" />
 
+              <label htmlFor="licensePlate">License Plate (Optional)</label>
+              <input id="licensePlate" type="text" value={licensePlate} onChange={(e) => setLicensePlate(e.target.value)} aria-label="Enter license plate for additional vehicle info" />
+
               {errorMessage && <p className="error-message">{errorMessage} <a href="tel:9365294748">Call Now</a></p>}
 
-              <button type="submit" className="modal-btn submit-btn" aria-label="Submit booking for ASE-certified mechanic">Submit & Book</button>
-              <button type="button" onClick={toggleBookModal} className="modal-btn close-btn">Close</button>
+              <button type="submit" className="modal-btn submit-btn" aria-label="Submit shop quote">Submit Shop Quote</button>
+              <button type="button" onClick={toggleQuoteModal} className="modal-btn close-btn">Close</button>
             </form>
           </div>
         </div>

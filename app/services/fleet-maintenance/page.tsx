@@ -1,3 +1,6 @@
+// Updated FleetMaintenance page.tsx
+'use client';
+
 import Image from 'next/image';
 import Script from 'next/script';
 import Link from 'next/link';
@@ -5,7 +8,7 @@ import { ChevronRightIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
 export default function FleetMaintenance() {
   // Countdown for urgency (ends 8/20/2025)
-  const daysLeft = 30;
+  const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
 
   return (
     <main className="max-w-4xl mx-auto p-6">
@@ -16,11 +19,11 @@ export default function FleetMaintenance() {
         <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
         <Image 
           src="/images/fleet-repair-montgomerytx.jpg" 
-          alt="ASE-certified mechanic performing fleet maintenance near me in The Woodlands TX with advanced tools" 
+          alt="Fleet maintenance services near me in The Woodlands TX with regular inspections and repairs in Kingwood TX"
           width={400} 
           height={200} 
           loading="lazy" 
-          className="rounded mx-auto max-w-full" // Ensures responsiveness
+          className="rounded mx-auto max-w-full"
         />
       </section>
 
@@ -80,10 +83,9 @@ export default function FleetMaintenance() {
               "addressRegion": "TX",
               "postalCode": "77381"
             },
-            "priceRange": "$$",
+            "priceRange": "  $$",
             "hasOfferCatalog": {
               "@type": "OfferCatalog",
-              "name": "Fleet Maintenance Services",
               "itemListElement": [
                 {
                   "@type": "Offer",
