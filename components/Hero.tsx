@@ -56,7 +56,13 @@ export default function Hero({ daysLeft }: HeroProps) {
       </div>
       <div className="hero-buttons">
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic in The Woodlands">Call Now</button>
-        <button onClick={toggleQuoteModal} className="book-now-btn" aria-label="Send shop quote for auto service in Montgomery County">Beat Quote Now</button> {/* A/B test text */}
+        <a 
+          href="mailto:david@toptechmobile.com?subject=Shop%20Quote%20Submission&body=Please%20attach%20your%20shop%20quote%20(image%2C%20PDF%2C%20screenshot)%20and%20describe%20your%20vehicle%20issue%20here.%0A%0AVehicle%20Details%3A%0AMake%3A%0AModel%3A%0AYear%3A%0ALocation%3A" 
+          className="book-now-btn" 
+          aria-label="Email shop quote for auto service in Montgomery County"
+        >
+          Beat Quote Now
+        </a>
       </div>
 
       {isCallModalOpen && (
