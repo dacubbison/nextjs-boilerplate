@@ -8,14 +8,21 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Roboto', sans-serif; background: #f8f9fa; color: #333; }
 
-/* Preload for faster load (SEO boost) */
-
+/* Animations for engagement */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-section, .card {
+  animation: fadeIn 1s ease-out;
+}
 
 /* Hero Section (optimized with background image and better mobile fit) */
 .hero-section {
   position: relative;
   min-height: 400px; /* Changed to min-height for better content fitting */
-  background-image: url('/images/mobile-mechanic-kingwood-tx.png'); /* Background pic for big hero */
+  background-image: url('/images/mobile-mechanic-kingwood-tx.png'); /* Background pic for big hero - replace with video below if added */
+  /* background: url('/videos/hero.mp4') no-repeat center/cover; */ /* Uncomment for video - add <video> tag in JSX for autoplay */
   background-size: cover;
   background-position: center;
   color: white;
@@ -96,6 +103,11 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s; /* Enhanced hover */
+}
+.call-now-btn:hover {
+  background: #0056b3;
+  transform: scale(1.05);
 }
 .book-now-btn {
   background: #28A745; /* Green */
@@ -106,6 +118,11 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.book-now-btn:hover {
+  background: #218838;
+  transform: scale(1.05);
 }
 
 /* Modal Popup */
@@ -143,17 +160,27 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   border: none;
   color: white;
   cursor: pointer;
+  transition: background 0.2s;
 }
 .call-btn {
   background: #007BFF; /* Blue */
 }
+.call-btn:hover {
+  background: #0056b3;
+}
 .text-btn {
   background: #6C757D; /* Gray */
+}
+.text-btn:hover {
+  background: #5a6268;
 }
 .close-btn {
   background: #DC3545; /* Red */
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+.close-btn:hover {
+  background: #C82333;
 }
 
 /* Quote Form Section */
@@ -215,6 +242,11 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   cursor: pointer;
   max-width: 200px;
   margin: 0 auto;
+  transition: background 0.2s, transform 0.2s;
+}
+.quote-form button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
 }
 
 /* Responsive for mobile */
@@ -234,6 +266,17 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 .footer-section a {
   color: #28A745;
   margin: 0 10px;
+  transition: color 0.2s;
+}
+.footer-section a:hover {
+  color: #218838;
+}
+
+/* Google Maps Embed in Footer */
+.map-embed {
+  margin: 20px auto;
+  max-width: 600px;
+  height: 300px;
 }
 
 /* Updated Modal Styles for Consistency */
@@ -341,7 +384,7 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
   font-weight: bold;
   text-align: center;
   min-width: 120px; /* Consistent width */
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 .service-item .learn-more {
   background: #007BFF; /* Blue to differentiate but complement */
@@ -349,6 +392,7 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .service-item .learn-more:hover {
   background: #0056b3;
+  transform: scale(1.05);
 }
 .service-item .book-now-btn {
   background: #28A745; /* Green */
@@ -358,6 +402,7 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .service-item .book-now-btn:hover {
   background: #218838;
+  transform: scale(1.05);
 }
 
 /* Media query for modals on mobile */
@@ -499,7 +544,49 @@ a, button { color: #28A745; text-decoration: none; font-weight: bold; }
 }
 .testimonials-section .grid > div {
   text-align: center;
+  transition: transform 0.2s;
+}
+.testimonials-section .grid > div:hover {
+  transform: translateY(-5px);
 }
 .testimonials-section .flex {
   color: #FFD700; /* Gold for stars */
+}
+.services-section .card {
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.services-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.services-section img {
+  max-height: 150px;
+  object-fit: cover;
+}
+.service-group ul li {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.additional-services img {
+  max-height: 300px;
+  object-fit: cover;
+}
+
+/* New: AI Chatbot Placeholder Styles */
+.ai-chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: background 0.2s, transform 0.2s;
+}
+.ai-chatbot:hover {
+  background: #0056b3;
+  transform: scale(1.1);
 }

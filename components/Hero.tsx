@@ -1,9 +1,14 @@
+// components/Hero.tsx
 'use client';
 
 import { useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 
-export default function Hero() {
+interface HeroProps {
+  daysLeft: number;
+}
+
+export default function Hero({ daysLeft }: HeroProps) {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [address, setAddress] = useState('');
@@ -30,7 +35,7 @@ export default function Hero() {
     setErrorMessage('');
     alert("I'll review your shop quote and call you back soon!");
     toggleQuoteModal();
-    // GA event example
+    // GA event event
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'submit_quote', { 'event_category': 'engagement' });
     }
@@ -41,16 +46,17 @@ export default function Hero() {
 
   return (
     <div className="hero-section">
+      {/* <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover"> <source src="/videos/hero.mp4" type="video/mp4" /> </video> */} {/* Uncomment for video */}
       <div className="hero-text">
         <h1>Top Tech Mobile Mechanic: ASE-Certified</h1>
         <p>I'm your trusted on-site auto service in The Woodlands, Montgomery County, and Kingwood areas.</p>
         <p>Fair pricing—share your shop quote, and I'll often beat it by up to 50%!</p>
         <p>Call or Text me for a Free Quote: 936-529-4748</p>
-        <p className="text-green-500 font-bold">New Customer Special: 10% off your first service! (Valid through 8/20/2025)</p>
+        <p className="text-green-500 font-bold">New Customer Special: 10% off your first service! (Ends in {daysLeft} days - Valid through 8/20/2025)</p>
       </div>
       <div className="hero-buttons">
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic in The Woodlands">Call Now</button>
-        <button onClick={toggleQuoteModal} className="book-now-btn" aria-label="Send shop quote for auto service in Montgomery County">Send Shop Quote</button>
+        <button onClick={toggleQuoteModal} className="book-now-btn" aria-label="Send shop quote for auto service in Montgomery County">Beat Quote Now</button> {/* A/B test text */}
       </div>
 
       {isCallModalOpen && (

@@ -1,3 +1,4 @@
+// app/page.tsx
 import Script from 'next/script';
 import Hero from '../components/Hero';
 import About from '../components/About'; // New import
@@ -16,10 +17,11 @@ export default function Home() {
   const promoEndDate = new Date('2025-08-20');
   const isPromoActive = currentDate <= promoEndDate;
   const formattedDate = format(currentDate, 'MMMM d, yyyy, h:mm a'); // e.g., July 26, 2025, 12:00 PM
+  const daysLeft = 24; // Calculated as of July 27, 2025
 
   return (
     <main>
-      <Hero />
+      <Hero daysLeft={daysLeft} />
       <About />
       <Services />
       {/* Real Testimonials Section (All 5-Star) (Good for trust) */}
@@ -52,7 +54,7 @@ export default function Home() {
       <QuoteForm />
       <Footer />
       {isPromoActive && (
-        <p className="promo-text">New Customer Special: 10% off your first service! Valid until August 20, 2025. (As of {formattedDate}) Beat any shop quote by up to 50%!</p>
+        <p className="promo-text text-center mt-4 text-green-500 font-bold">New Customer Special: 10% off your first service! Valid until August 20, 2025. (As of {formattedDate}) Beat any shop quote by up to 50%!</p>
       )}
       <Script
         type="application/ld+json"
@@ -137,6 +139,11 @@ export default function Home() {
               "@type": "Question",
               "name": "What areas do you serve as a mobile mechanic?",
               "acceptedAnswer": { "@type": "Answer", "text": "I serve The Woodlands, Kingwood, and Montgomery County TX." }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer emergency roadside assistance?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, including flat tire changes and lockouts in The Woodlands area." }
             }]
           }
         })}
