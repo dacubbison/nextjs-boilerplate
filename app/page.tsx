@@ -9,7 +9,7 @@ import DynamicTestimonials from '../components/DynamicTestimonials'; // Ensure t
 
 export const metadata = {
   title: 'Mobile Mechanic in The Woodlands TX - Top Tech Mobile: ASE-Certified Services',
-  description: 'Reliable mobile mechanic near me in The Woodlands, Kingwood, and Montgomery County TX. On-site auto repairs, diagnostics, oil changes, and hybrid/EV services at competitive prices.',
+  description: 'Reliable mobile mechanic near me in The Woodlands, Kingwood, and Montgomery County TX. On-site auto repairs, diagnostics, oil changes, and hybrid/EV services.',
 };
 
 export default function Home() {
@@ -51,7 +51,6 @@ export default function Home() {
             "closes": "18:00"
           },
           "url": "https://toptechmobile.com",
-          "priceRange": "$$",
           "sameAs": [
             "https://twitter.com/toptechmobile", // Replace with real links or remove
             "https://facebook.com/toptechmobile"
@@ -77,14 +76,14 @@ export default function Home() {
               "@type": "Review",
               "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
               "author": { "@type": "Person", "name": "David Ridgely" },
-              "reviewBody": "Top Tech Mobile did great replacing my compressor. They came out, replaced the part in my yard, and left no mess. They were very affordable and the owner was very helpful with diagnosing the issue and getting my car fixed quickly.",
+              "reviewBody": "Top Tech Mobile did great replacing my compressor. They came out, replaced the part in my yard, and left no mess. The owner was very helpful with diagnosing the issue and getting my car fixed quickly.",
               "datePublished": "2025-07-26"
             },
             {
               "@type": "Review",
               "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
               "author": { "@type": "Person", "name": "Joseph Quinn" },
-              "reviewBody": "(No detailed review provided)",
+              "reviewBody": "Excellent service—highly recommended!",
               "datePublished": "2025-07-21"
             }
           ],

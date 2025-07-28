@@ -129,3 +129,7 @@ export default function Hero() {
     </div>
   );
 }
+// Example in Hero.tsx handleQuoteSubmit
+if (typeof window !== 'undefined' && window.gtag) {
+  window.gtag('event', 'submit_quote', { 'category': 'engagement', 'label': 'Shop Quote Form' });
+}
