@@ -1,14 +1,26 @@
 // components/Hero.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Select, { SingleValue } from 'react-select';
+import { differenceInDays } from 'date-fns'; // Add this import if not already
 
-interface HeroProps {
-  daysLeft: number;
-}
+export default function Hero() {
+  const [daysLeft, setDaysLeft] = useState(0);
 
-export default function Hero({ daysLeft }: HeroProps) {
+  useEffect(() => {
+    const promoEndDate = new Date('2025-08-20');
+    const updateCountdown = () => {
+      const now = new Date();
+      const diff = differenceInDays(promoEndDate, now);
+      setDaysLeft(diff > 0 ? diff : 0);
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 60000); // Update every minute
+    return () => clearInterval(interval);
+  }, []);
+
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [address, setAddress] = useState('');
@@ -35,7 +47,7 @@ export default function Hero({ daysLeft }: HeroProps) {
     setErrorMessage('');
     alert("I'll review your shop quote and call you back soon!");
     toggleQuoteModal();
-    // GA event event
+    // GA event
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'submit_quote', { 'event_category': 'engagement' });
     }
@@ -56,13 +68,7 @@ export default function Hero({ daysLeft }: HeroProps) {
       </div>
       <div className="hero-buttons">
         <button onClick={toggleCallModal} className="call-now-btn" aria-label="Open contact modal for mobile mechanic in The Woodlands">Call Now</button>
-        <a 
-          href="mailto:david@toptechmobile.com?subject=Shop%20Quote%20Submission&body=Please%20attach%20your%20shop%20quote%20(image%2C%20PDF%2C%20screenshot)%20and%20describe%20your%20vehicle%20issue%20here.%0A%0AVehicle%20Details%3A%0AMake%3A%0AModel%3A%0AYear%3A%0ALocation%3A" 
-          className="book-now-btn" 
-          aria-label="Email shop quote for auto service in Montgomery County"
-        >
-          Beat Quote Now
-        </a>
+        <button onClick={toggleQuoteModal} className="book-now-btn" aria-label="Send shop quote for auto service in Montgomery County">Beat Quote Now</button> {/* A/B test text */}
       </div>
 
       {isCallModalOpen && (

@@ -1,11 +1,11 @@
 // app/page.tsx
 import Script from 'next/script';
 import Hero from '../components/Hero';
-import About from '../components/About'; // New import
+import About from '../components/About';
 import Services from '../components/Services';
 import QuoteForm from '../components/QuoteForm';
 import Footer from '../components/Footer';
-import { format } from 'date-fns'; // Already installed
+import DynamicTestimonials from '../components/DynamicTestimonials'; // Ensure this file exists as DynamicTestimonials.tsx in components/
 
 export const metadata = {
   title: 'Mobile Mechanic in The Woodlands TX - Top Tech Mobile: ASE-Certified Services',
@@ -13,49 +13,14 @@ export const metadata = {
 };
 
 export default function Home() {
-  const currentDate = new Date();
-  const promoEndDate = new Date('2025-08-20');
-  const isPromoActive = currentDate <= promoEndDate;
-  const formattedDate = format(currentDate, 'MMMM d, yyyy, h:mm a'); // e.g., July 26, 2025, 12:00 PM
-  const daysLeft = 24; // Calculated as of July 27, 2025
-
   return (
     <main>
-      <Hero daysLeft={daysLeft} />
+      <Hero />
       <About />
       <Services />
-      {/* Real Testimonials Section (All 5-Star) (Good for trust) */}
-      <section className="testimonials-section py-10 text-center bg-gray-100">
-        <h2 className="text-2xl font-bold mb-6">What Customers Say</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="bg-white p-4 rounded-lg shadow-md">
-            <div className="flex justify-center mb-2">
-              ⭐⭐⭐⭐⭐
-            </div>
-            <p className="italic">"I highly recommend Top Tech Mobile! They showed up on time, finished my brakes on the same day. No mess left behind!!! Job well done Top Tech!"</p>
-            <p className="mt-2 font-semibold">- Mandie Vaughn, 1 day ago</p>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow-md">
-            <div className="flex justify-center mb-2">
-              ⭐⭐⭐⭐⭐
-            </div>
-            <p className="italic">(No detailed review provided)</p>
-            <p className="mt-2 font-semibold">- B TheReal, 1 day ago</p>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow-md">
-            <div className="flex justify-center mb-2">
-              ⭐⭐⭐⭐⭐
-            </div>
-            <p className="italic">(No detailed review provided)</p>
-            <p className="mt-2 font-semibold">- Joseph Quinn, 4 days ago</p>
-          </div>
-        </div>
-      </section>
+      <DynamicTestimonials />
       <QuoteForm />
       <Footer />
-      {isPromoActive && (
-        <p className="promo-text text-center mt-4 text-green-500 font-bold">New Customer Special: 10% off your first service! Valid until August 20, 2025. (As of {formattedDate}) Beat any shop quote by up to 50%!</p>
-      )}
       <Script
         type="application/ld+json"
         strategy="afterInteractive"
@@ -106,21 +71,21 @@ export default function Home() {
               "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
               "author": { "@type": "Person", "name": "Mandie Vaughn" },
               "reviewBody": "I highly recommend Top Tech Mobile! They showed up on time, finished my brakes on the same day. No mess left behind!!! Job well done Top Tech!",
-              "datePublished": "2025-07-25"
+              "datePublished": "2025-07-24"
             },
             {
               "@type": "Review",
               "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-              "author": { "@type": "Person", "name": "B TheReal" },
-              "reviewBody": "(No detailed review provided)",
-              "datePublished": "2025-07-25"
+              "author": { "@type": "Person", "name": "David Ridgely" },
+              "reviewBody": "Top Tech Mobile did great replacing my compressor. They came out, replaced the part in my yard, and left no mess. They were very affordable and the owner was very helpful with diagnosing the issue and getting my car fixed quickly.",
+              "datePublished": "2025-07-26"
             },
             {
               "@type": "Review",
               "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
               "author": { "@type": "Person", "name": "Joseph Quinn" },
               "reviewBody": "(No detailed review provided)",
-              "datePublished": "2025-07-22"
+              "datePublished": "2025-07-21"
             }
           ],
           "aggregateRating": {
