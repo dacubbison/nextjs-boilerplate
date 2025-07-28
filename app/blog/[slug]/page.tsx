@@ -11,8 +11,7 @@ const serviceData = {
     desc: `I optimize your engine's performance for smoother operation, better fuel efficiency, and reduced emissions—perfect for vehicles facing the Texas heat in The Woodlands TX. From spark plugs to filters, I handle it on-site.`,
     image: '/images/mobile-mechanic-woodlands.jpg', // Placeholder
     faqs: [
-      { q: 'How often should I get a tune-up?', a: 'Every 30,000 miles or if you notice rough idling—essential for Montgomery County drivers.' },
-      { q: 'What does a tune-up cost?', a: 'Starting at $100, depending on your vehicle. Call 936-529-4748 for a quote.' },
+      { q: 'How often should I get a tune-up?', a: 'Every 30,000 miles or if you notice rough idling—essential for Montgomery County drivers. Call or text for details.' },
     ],
   },
   'fuel-injection-service': {
@@ -20,7 +19,7 @@ const serviceData = {
     desc: `Cleaning or replacing fuel injectors to ensure efficient fuel delivery and prevent rough idling or poor acceleration near me in Kingwood TX. Includes diagnostic scan and cleaning.`,
     image: '/images/fuel-pump-repair.jpg', // Reused
     faqs: [
-      { q: 'Signs of fuel injection issues?', a: 'Poor mileage or check engine light—common in humid Montgomery County.' },
+      { q: 'Signs of fuel injection issues?', a: 'Poor mileage or check engine light—common in humid Montgomery County. Call or text for details.' },
     ],
   },
   'oil-and-oil-filter-changes': {
@@ -29,7 +28,7 @@ const serviceData = {
     image: '/images/mobile-oil-change-woodlands.jpg',
     faqs: [
       { q: 'How often should I change oil?', a: 'Every 5,000-7,500 miles for synthetic; we can advise based on your vehicle in The Woodlands TX.' },
-      { q: 'What is included?', a: 'Oil, filter, fluid checks, and basic inspection for $120 on-site in Kingwood TX.' },
+      { q: 'What is included?', a: 'Oil, filter, fluid checks, and basic inspection. Call or text for details.' },
       { q: 'Why Mobil 1 synthetic?', a: 'Better protection and performance for modern engines—recommended for most vehicles near me.' },
     ],
   },
@@ -39,7 +38,7 @@ const serviceData = {
     image: '/images/brake-service.jpg',
     faqs: [
       { q: 'When should I get brakes inspected?', a: 'Every 6 months or if you hear squeaking in Kingwood TX.' },
-      { q: 'What is the inspection cost?', a: '$80 with clear repair quotes in Montgomery County TX.' },
+      { q: 'What is the inspection?', a: 'Clear repair recommendations. Call or text for details.' },
       { q: 'How often should I inspect brakes in Texas heat?', a: 'More frequently due to wear—every 6 months recommended for safety.' },
     ],
   },
@@ -49,7 +48,7 @@ const serviceData = {
     image: '/images/ac-recharge.jpg',
     faqs: [
       { q: 'Why is my AC not cooling?', a: 'Common causes like low refrigerant—diagnosed quickly on-site.' },
-      { q: 'What is the diagnostic cost?', a: '$80 with no hidden fees.' },
+      { q: 'What is the diagnostic?', a: 'No hidden fees. Call or text for details.' },
     ],
   },
   'preventive-maintenance': {
@@ -74,7 +73,7 @@ const serviceData = {
     image: '/images/battery-test-3.jpg',
     faqs: [
       { q: 'How do I know if my battery is bad?', a: 'Slow starting or dim lights—our mobile test with advanced tools can confirm on-site in Kingwood TX.' },
-      { q: 'What is the cost?', a: '$80 for check, with transparent replacement quotes in Montgomery County TX.' },
+      { q: 'What is the check?', a: 'Transparent recommendations. Call or text for details.' },
     ],
   },
   'suspension-services': {
@@ -111,34 +110,34 @@ const serviceData = {
   },
   'auto-diagnostics': {
     title: 'Mobile Auto Diagnostics in The Woodlands, Kingwood, and Montgomery County TX',
-    desc: `Advanced diagnostic tools for vehicles with fair and upfront pricing - often beat shop quotes by 50%!`,
+    desc: `Advanced diagnostic tools for vehicles—call or text for details.`,
     image: '/images/mobile-auto-diagnostics-woodlands.jpg',
     faqs: [
       { q: 'What does auto diagnostics cover?', a: 'Full scan for engine codes, performance issues, and more using advanced tools in The Woodlands, Kingwood, and Montgomery County TX.' },
-      { q: 'What is the diagnostic cost?', a: '$100 with no hidden fees.' },
+      { q: 'What is the diagnostic?', a: 'No hidden fees. Call or text for details.' },
     ],
   },
   'car-accessories': {
     title: 'Car Accessories Installation Near Me in Montgomery County TX',
-    desc: `Expert mobile installation for dash cams, GPS systems, audio upgrades, and more in The Woodlands TX with fair and upfront pricing.`,
+    desc: `Expert mobile installation for dash cams, GPS systems, audio upgrades, and more in The Woodlands TX.`,
     image: '/images/car-install-montgomerytx.jpg',
     faqs: [
       { q: 'What types of accessories do you install?', a: 'We handle electronics like dash cams, stereos, and lights for most vehicles in The Woodlands TX.' },
-      { q: 'Is installation warrantied?', a: 'Yes, with fair pricing and satisfaction guarantee in Kingwood TX.' },
+      { q: 'Is installation warrantied?', a: 'Yes, with satisfaction guarantee in Kingwood TX. Call or text for details.' },
     ],
   },
   'fleet-maintenance': {
     title: 'Fleet Maintenance Services Near Me in The Woodlands TX',
-    desc: `Custom maintenance plans for business fleets in Montgomery County TX with fair and upfront pricing to keep your operations running smoothly.`,
+    desc: `Custom maintenance plans for business fleets in Montgomery County TX to keep your operations running smoothly.`,
     image: '/images/fleet-repair-montgomerytx.jpg',
     faqs: [
       { q: 'What fleets do you service?', a: 'Delivery vans, company cars, trucks—any business vehicles in Kingwood TX and surrounding areas.' },
-      { q: 'How do pricing plans work?', a: 'Fair, customized quotes with no hidden fees in Montgomery County TX—contact us for details.' },
+      { q: 'How do plans work?', a: 'Customized recommendations with no hidden fees in Montgomery County TX—contact us for details.' },
     ],
   },
   'general-diagnostic': {
     title: 'General Vehicle Diagnostic Near Me in Montgomery County TX',
-    desc: `Full system scans to identify performance issues in The Woodlands TX with fair and upfront pricing.`,
+    desc: `Full system scans to identify performance issues in The Woodlands TX.`,
     image: '/images/fuel-pump-repair.jpg',
     faqs: [
       { q: 'What is included in a general diagnostic?', a: 'Engine, transmission, electrical, and more for a complete check on-site in The Woodlands TX.' },
@@ -151,16 +150,15 @@ const serviceData = {
     image: '/images/hybrid-ev.jpg',
     faqs: [
       { q: 'Do you service Tesla and other EVs?', a: 'Yes, we handle most major brands with certified techs in The Woodlands TX.' },
-      { q: 'What is the cost for battery check?', a: 'Starting at $80 with transparent pricing on-site in Kingwood TX.' },
+      { q: 'What is the battery check?', a: 'Transparent recommendations on-site in Kingwood TX. Call or text for details.' },
     ],
   },
   'mobile-mechanic': {
     title: 'Mobile Mechanic Services in The Woodlands TX',
-    desc: `On-site auto repairs and maintenance in The Woodlands TX with fair and upfront pricing.`,
+    desc: `On-site auto repairs and maintenance in The Woodlands TX.`,
     image: '/images/mobile-mechanic-woodlands.jpg',
     faqs: [
       { q: 'What types of repairs do you offer?', a: 'We handle brakes, suspension, engine, transmission, and more on-site in Kingwood TX.' },
-      { q: 'How much do you save compared to shops?', a: 'Up to 50% by coming to you—share your quote for a match in Montgomery County TX!' },
       { q: 'Do you service hybrids/EVs?', a: 'Yes, specialized repairs for hybrids and EVs near me.' },
     ],
   },
@@ -173,15 +171,6 @@ const serviceData = {
       { q: 'How long does it take?', a: 'About 1-2 hours at your location—no shop visit needed near me in Montgomery County TX.' },
     ],
   },
-  'auto-diagnostics': {
-    title: 'Mobile Auto Diagnostics in The Woodlands TX',
-    desc: `As your trusted mobile mechanic near me in The Woodlands TX, I provide fast, accurate auto diagnostics right at your location. Using advanced tools, I scan for engine codes, electrical issues, and performance problems to pinpoint the root cause quickly. Whether it's a check engine light or unusual noises, my ASE-certified expertise ensures reliable results without the shop hassle.`,
-    image: '/images/mobile-auto-diagnostics-woodlands.jpg',
-    faqs: [
-      { q: 'How long does diagnostics take?', a: 'Typically 30-60 minutes on-site in Kingwood TX.' },
-      { q: 'What if I need repairs after?', a: 'I offer immediate fixes or quotes—often beating shops by 50% in Montgomery County TX.' },
-    ],
-  },
 };
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -189,14 +178,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = serviceData[resolvedParams.slug as keyof typeof serviceData];
   if (!service) return notFound();
 
-  const daysLeft = Math.floor((new Date('2025-08-20').getTime() - new Date().getTime()) / (1000 * 3600 * 24));
-
   return (
     <main className="max-w-4xl mx-auto p-6">
       <section className="service-hero text-center mb-8">
         <h1 className="text-3xl font-bold mb-4">{service.title}</h1>
         <p className="text-lg mb-4">{service.desc}</p>
-        <p className="text-green-500 font-bold mb-4">New Customer Special: 10% off! (Hurry—ends in {daysLeft} days)</p>
+        <p className="text-green-500 font-bold mb-4">New Customer Special! Call or text for details.</p>
         <Image 
           src={service.image}
           alt={`${service.title} service by mobile mechanic in The Woodlands TX`}
@@ -211,9 +198,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <h2 className="text-2xl font-bold mb-4 flex items-center"><CheckCircleIcon className="h-6 w-6 mr-2 text-green-500" /> Service Details</h2>
         <ul className="list-disc pl-5 mb-4 space-y-2">
           <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> On-site diagnostics and repairs</li>
-          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> Fair pricing, no hidden fees</li>
+          <li className="flex items-start"><ChevronRightIcon className="h-5 w-5 mr-2 text-blue-500" /> No hidden fees</li>
         </ul>
-        <p className="font-bold">Pricing: Starts at $80. Benefits: Convenient, reliable service - 10% off for new customers!</p>
+        <p className="font-bold">Call or text for details and to schedule.</p>
       </section>
 
       <section className="faqs mb-8">
@@ -255,7 +242,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               "addressRegion": "TX",
               "postalCode": "77302"
             },
-            "priceRange": "$$"
           },
           "areaServed": {
             "@type": "GeoCircle",
