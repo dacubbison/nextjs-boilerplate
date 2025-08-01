@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Select, { SingleValue } from 'react-select';
 import { differenceInDays } from 'date-fns'; // Add this import if not already
 
@@ -57,8 +58,24 @@ export default function Hero() {
   const makes = ['Acura', 'Audi', 'BMW', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'].map(m => ({ value: m, label: m }));
 
   return (
-    <div className="hero-section">
-      {/* <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover"> <source src="/videos/hero.mp4" type="video/mp4" /> </video> */} {/* Uncomment for video */}
+    <div className="hero-section relative">
+      {/* ASE Logos: Gold on left (Master Technician), Blue on right (We Support ASE) */}
+      <Image
+        src="/images/ASE-Logo-GOLD.png"
+        alt="ASE Certified Master Technician"
+        width={120}
+        height={120}
+        className="absolute left-4 top-4 md:left-10 md:top-10 w-20 md:w-32 opacity-90"
+      />
+      <Image
+        src="/images/ASE-logo.png"
+        alt="We Support ASE"
+        width={120}
+        height={120}
+        className="absolute right-4 top-4 md:right-10 md:top-10 w-20 md:w-32 opacity-90"
+      />
+
+      {/* Existing hero content */}
       <div className="hero-text">
         <h1>Top Tech Mobile Mechanic: ASE-Certified</h1>
         <p>I'm your trusted on-site auto service in The Woodlands, Montgomery County, and Kingwood areas.</p>
